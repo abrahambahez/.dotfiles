@@ -2,7 +2,7 @@
 
 # Check dependencies git stow, antibody
 
-for i in stow antibody 
+for i in stow antibody nvim zsh kitty 
 do 
     if ! command -v $i &> /dev/null
     then
@@ -20,7 +20,10 @@ stow zsh
 stow kitty
 
 # Install antibody
+# Linux 
 # curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
+# MacOs
+# brew install antibody
 
 # Use antibody
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
