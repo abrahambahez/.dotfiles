@@ -19,16 +19,8 @@ stow nvim
 stow zsh
 stow kitty
 
-# Install antibody
-# Linux 
-# curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
-# MacOs
-# brew install antibody
-
 # Use antibody
+# Consider change antibody for antidote (newer implementation) https://github.com/mattmc3/antidote
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
-# Source antibody file to .zshrc
-echo "# Dotfiles auto sourcing \nsource ~/.zah_plugins.sh" | tee -a .zshrc
-
-
+echo "Success: Dotfiles stowed and zsh plugins installed"
