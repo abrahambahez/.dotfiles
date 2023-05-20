@@ -1,4 +1,5 @@
 # Git
+#
 alias gs="git status"
 alias gaa="git add ."
 alias gp="git pull"
@@ -8,15 +9,22 @@ function gcl () { git clone "$1" }
 function gc () { git commit -m "$1" }
 function gca () { git add -A && git commit -m "$1" }
 
-# Miscelaneous
+# Navigation
+#
+alias l="ls --color=auto"
+alias ll="ls -la --color=auto"
+## go to dir using fzf
+function sd () {
+	cd $(find * -type d | fzf)
+}
 
+# Miscelaneous
+#
 alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 
-# Shorcut functions
+# Kitty
+#
+alias icat="kitty +kitten icat"
 
-# go to dir using fzf
-function sd () {
-	cd $(find * -type d | fzf)
-}
