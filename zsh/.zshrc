@@ -30,6 +30,7 @@ bindkey -v '^?' backward-delete-char
 # For a full list of active aliases, run `alias`.
 #
 # aliases
+source ~/aliases.zsh
 alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 
@@ -38,6 +39,8 @@ alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 export PATH="/Users/sabhz/Library/Python/3.9/bin:$PATH"
+
+#alias sd="cd $(find * -type d | fzf)"
 
 ###
 # POWERLEVEL10K CONFIG
