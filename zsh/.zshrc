@@ -54,3 +54,4 @@ export PATH="/Users/sabhz/Library/Python/3.9/bin:$PATH"
 
 # Sourcing antbody plugin manager
 source ~/.zsh_plugins.sh
+export PATH=$PATH:/home/sabhz/.spicetify

@@ -21,7 +21,7 @@ sudo mv ~/icon_256x256.png /usr/share/icons/hicolor/256x256/apps/kitty.png
 
 # Set icon in .desktop file
 
-echo "Cambiando logo en el archivo .desktop"
+echo "Cambiando logo en el archivo .desktop\nReferencia:"
 cat /usr/share/applications/kitty.desktop
 
 echo "Se usará el siguiente ícono:"
