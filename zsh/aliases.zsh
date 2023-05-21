@@ -17,14 +17,17 @@ alias ll="ls -la --color=auto"
 function sd () {
 	cd $(find * -type d | fzf)
 }
+alias opn="xdg-open"
+
+# Kitty
+#
+alias icat="kitty +kitten icat"
 
 # Miscelaneous
 #
 alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
-
-# Kitty
-#
-alias icat="kitty +kitten icat"
+# Fedora: npm i libgen-downloader cli
+alias lib="libgen-downloader"
 

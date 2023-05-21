@@ -10,6 +10,10 @@ sudo dnf update
 echo "Instalando software inicial"
 sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc # If treesitter compiling throws error: install g++
 
+# It can be uninstalled: about:support in Firefox > Application Basics > Profile Directory > Open Directory — and delete the “chrome” folder.
+#echo "Instalando script para tema en Firefox"
+#curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh | bash
+
 # Install TinyTex
 echo "Instalando TinyTex para conversión pandoc-pdf"
 wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh

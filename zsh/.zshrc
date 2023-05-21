@@ -31,16 +31,6 @@ bindkey -v '^?' backward-delete-char
 #
 # aliases
 source ~/aliases.zsh
-alias zshrc="nvim ~/.zshrc"
-alias v="nvim"
-
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs"
-
-export PATH="/Users/sabhz/Library/Python/3.9/bin:$PATH"
-
-#alias sd="cd $(find * -type d | fzf)"
 
 ###
 # POWERLEVEL10K CONFIG
