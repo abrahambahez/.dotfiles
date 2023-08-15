@@ -30,4 +30,7 @@ alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
-
+# Todo.txt
+alias t="todo.sh"
+alias tcfg="nvim ~/.todo.cfg"
+alias tv="nvim /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs/Documentos/todo.txt"
