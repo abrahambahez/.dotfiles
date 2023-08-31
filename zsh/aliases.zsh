@@ -14,22 +14,32 @@ function gca () { git add -A && git commit -m "$1" }
 alias l="ls --color=auto"
 alias ll="ls -la --color=auto"
 ## go to dir using fzf
-function sd () {
+function zdir () {
 	cd $(find * -type d | fzf)
 }
+
+# Linux Only 👇
 alias opn="xdg-open"
 
 # Kitty
 #
 alias icat="kitty +kitten icat"
+alias theme="kitty +kitten themes"
+
+
+# Open configs
+alias vconf="nvim ~/.config/nvim/init.lua"
+alias zshrc="nvim ~/.zshrc"
 
 # Miscelaneous
 #
-alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
+#
+# Linux Only 👇
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
+
 # Todo.txt
 alias t="todo.sh"
 alias tcfg="nvim ~/.todo.cfg"
