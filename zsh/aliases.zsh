@@ -42,5 +42,13 @@ alias lib="libgen-downloader"
 
 # Todo.txt
 alias t="todo.sh"
-alias tcfg="nvim ~/.todo.cfg"
-alias tv="nvim /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs/Documentos/todo.txt"
+alias tconf="nvim ~/.todo.cfg"
+alias tv="nvim /Users/sabhz/Library/Mobile Documents/com~apple~CloudDocs/Documentos/archivo/+/todo.txt"
+
+# Karmapulse Notes
+
+function kpnote () { cd ~/Documents/karmapulse/ && nvim "$1.md" }
+function kps () { 
+	nvim "$(find ~/Documents/karmapulse | fzf)"
+}
+

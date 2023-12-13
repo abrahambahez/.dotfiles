@@ -76,14 +76,14 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   -- Markdown support
   'ixru/nvim-markdown',
-  'junegunn/goyo.vim',
   -- Todo.txt Vim plugin
   'freitass/todo.txt-vim',
   -- Klog Time Management syntax plugin
   '73/vim-klog',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
+  -- Zen mode
+  'pocco81/true-zen.nvim',
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   { -- LSP Configuration & Plugins
@@ -262,6 +262,13 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- [[Keymaps for true-zen ]]
+vim.keymap.set("n", "<leader>zn", ":TZNarrow<CR>", {})
+vim.keymap.set("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
+vim.keymap.set("n", "<leader>zf", ":TZFocus<CR>", {})
+vim.keymap.set("n", "<leader>zm", ":TZMinimalist<CR>", {})
+vim.keymap.set("n", "<leader>za", ":TZAtaraxis<CR>", {})
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -276,6 +283,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
+  file_ignore_patterns = { "node_modules/" },
   defaults = {
     mappings = {
       i = {
