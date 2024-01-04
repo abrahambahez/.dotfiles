@@ -1,1 +1,6 @@
-@theme "themes/spotlight-dark.rasi"
+@theme "themes/tokyonight.rasi"
+
+configuration {
+    show-icons: true;
+}
+

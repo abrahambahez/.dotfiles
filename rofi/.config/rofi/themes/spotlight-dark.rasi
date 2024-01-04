@@ -40,7 +40,7 @@ inputbar {
 
 icon-search {
     expand:     false;
-    filename:   "search";
+    filename:   "icon-search";
     size: 28px;
 }
 
