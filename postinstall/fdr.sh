@@ -8,7 +8,7 @@ echo "Actualizando sistema"
 sudo dnf update
 
 echo "Instalando software inicial"
-sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc # If treesitter compiling throws error: install g++
+sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift # If treesitter compiling throws error: install g++
 
 # It can be uninstalled: about:support in Firefox > Application Basics > Profile Directory > Open Directory — and delete the “chrome” folder.
 #echo "Instalando script para tema en Firefox"
@@ -58,6 +58,7 @@ command -v zsh | sudo tee -a /etc/shells
 
 # use zsh as default shell
 sudo chsh -s $(which zsh) $USER
+chsh -s $(which zsh)
 
 # Install antibody
 echo "Instalando antibody zsh manager"
