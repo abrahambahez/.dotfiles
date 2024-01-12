@@ -23,11 +23,17 @@ alias opn="xdg-open"
 #
 alias icat="kitty +kitten icat"
 
+# Obsidian
+alias obsnew="~/.dotfiles/scripts/clone-obsidian-base.sh"
+
 # Miscelaneous
 #
 alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
+
+
+# ALIASES WITH DEPENDENCIES
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
 # Todo.txt
