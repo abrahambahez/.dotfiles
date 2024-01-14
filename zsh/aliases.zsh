@@ -31,12 +31,18 @@ alias theme="kitty +kitten themes"
 alias vconf="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
 
+# Obsidian
+alias obsnew="~/.dotfiles/scripts/clone-obsidian-base.sh"
+
 # Miscelaneous
 #
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
-#
+
 # Linux Only 👇
+
+# ALIASES WITH DEPENDENCIES
+#
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
 

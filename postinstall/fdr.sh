@@ -8,11 +8,15 @@ echo "Actualizando sistema"
 sudo dnf update
 
 echo "Instalando software inicial"
-sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc # If treesitter compiling throws error: install g++
+sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift python3-pip  # If treesitter compiling throws error: install g++
 
 # It can be uninstalled: about:support in Firefox > Application Basics > Profile Directory > Open Directory — and delete the “chrome” folder.
 #echo "Instalando script para tema en Firefox"
 #curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh | bash
+
+echo "Instalando soporte para H264"
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+sudo dnf install -y gstreamer1-plugin-openh264 mozilla-openh264
 
 # Install TinyTex
 echo "Instalando TinyTex para conversión pandoc-pdf"
@@ -58,10 +62,18 @@ command -v zsh | sudo tee -a /etc/shells
 
 # use zsh as default shell
 sudo chsh -s $(which zsh) $USER
+chsh -s $(which zsh)
+
+echo "Configurando dotfiles"
+sudo chmod +x ~/.dotfiles/install.sh && ~/.dotfiles/install.sh
 
 # Install antibody
 echo "Instalando antibody zsh manager"
 sudo curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
+
+echo "Instalando manejadores de Javascript"
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+nvm install npm
 
 # Run script to change kitty icons
 echo "Cambiando íconos de Kitty terminal"
