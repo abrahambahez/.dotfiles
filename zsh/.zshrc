@@ -45,3 +45,6 @@ source ~/aliases.zsh
 # Sourcing antbody plugin manager
 source ~/.zsh_plugins.sh
 export PATH=$PATH:/home/sabhz/.spicetify
+
+# sourcing some env
+source ~/.profile

@@ -58,3 +58,8 @@ function kps () {
 	nvim "$(find ~/Documents/karmapulse | fzf)"
 }
 
+alias tcfg="nvim ~/.todo.cfg"
+alias tv="nvim /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs/Documentos/todo.txt"
+# chatgpt cli from https://github.com/0xacx/chatGPT-shell-cli
+alias chat="chatgpt -i $1"
+alias gpt="chatgpt -p $1"
