@@ -43,7 +43,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.cmd("lan en_US.UTF-8") -- Workaround to let nvim handle clipboard locale
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- vim.set.shiftwidth = 4 to handle tabs as spaces
+-- [sabhz] vim.set.shiftwidth = 4 to handle tabs as spaces
 vim.api.nvim_set_option('smarttab', false)
 vim.api.nvim_set_option('shiftwidth', 4)
 
@@ -74,16 +74,17 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  -- Markdown support
+  -- [sabhz] Markdown support
   'ixru/nvim-markdown',
-  -- Todo.txt Vim plugin
+  -- [sabhz] Todo.txt Vim plugin
   'freitass/todo.txt-vim',
-  -- Klog Time Management syntax plugin
+  -- [sabhz] Klog Time Management syntax plugin
   '73/vim-klog',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- Zen mode
   'pocco81/true-zen.nvim',
+  'zk-org/zk-nvim',
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   { -- LSP Configuration & Plugins
