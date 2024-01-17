@@ -1,0 +1,9 @@
+.is-hidden-frameless.mod-linux .titlebar-button-container {
+  display: none;
+}
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+ content: none;
+}
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  padding-right: .5em;
+}

@@ -101,8 +101,23 @@
   ],
   "workspace:new-tab": [],
   "editor:open-link-in-new-leaf": [],
-  "workspace:split-horizontal": [],
-  "workspace:split-vertical": [],
+  "workspace:split-horizontal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "T"
+    }
+  ],
+  "workspace:split-vertical": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "T"
+    }
+  ],
   "obsidian-stille:toggleStille": [
     {
       "modifiers": [
@@ -360,15 +375,12 @@
         "Mod"
       ],
       "key": "O"
-    }
-  ],
-  "obsidian-spaced-repetition:srs-review-flashcards": [
+    },
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
-      "key": "R"
+      "key": "N"
     }
   ],
   "backlink:toggle-backlinks-in-document": [
@@ -406,14 +418,6 @@
       "key": "P"
     }
   ],
-  "darlal-switcher-plus:switcher-plus:open-editors": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "T"
-    }
-  ],
   "editor:cycle-list-checklist": [
     {
       "modifiers": [
@@ -424,15 +428,7 @@
     }
   ],
   "workspace:close": [],
-  "editor:open-link-in-new-window": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "Enter"
-    }
-  ],
+  "editor:open-link-in-new-window": [],
   "editor:open-link-in-new-split": [
     {
       "modifiers": [
@@ -472,6 +468,22 @@
         "Shift"
       ],
       "key": "L"
+    }
+  ],
+  "editor:focus-bottom": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "J"
+    }
+  ],
+  "editor:focus-top": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "K"
     }
   ]
 }
