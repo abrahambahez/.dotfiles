@@ -485,5 +485,14 @@
       ],
       "key": "K"
     }
+  ],
+  "obsidian-shellcommands:shell-command-qaplvw2nve": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
   ]
 }
