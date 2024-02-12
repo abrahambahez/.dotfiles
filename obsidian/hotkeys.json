@@ -64,9 +64,30 @@
     }
   ],
   "file-explorer:new-file-in-new-pane": [],
-  "workspace:goto-tab-1": [],
-  "workspace:goto-tab-2": [],
-  "workspace:goto-tab-3": [],
+  "workspace:goto-tab-1": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "1"
+    }
+  ],
+  "workspace:goto-tab-2": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "2"
+    }
+  ],
+  "workspace:goto-tab-3": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "3"
+    }
+  ],
   "workspace:goto-tab-4": [],
   "workspace:goto-tab-5": [],
   "workspace:goto-tab-6": [],
@@ -99,23 +120,20 @@
       "key": "M"
     }
   ],
-  "workspace:new-tab": [],
-  "editor:open-link-in-new-leaf": [],
-  "workspace:split-horizontal": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "T"
-    }
-  ],
-  "workspace:split-vertical": [
+  "workspace:new-tab": [
     {
       "modifiers": [
         "Mod"
       ],
       "key": "T"
+    }
+  ],
+  "editor:open-link-in-new-leaf": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Enter"
     }
   ],
   "obsidian-stille:toggleStille": [
@@ -427,17 +445,7 @@
       "key": "Enter"
     }
   ],
-  "workspace:close": [],
-  "editor:open-link-in-new-window": [],
-  "editor:open-link-in-new-split": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Enter"
-    }
-  ],
-  "workspace:close-tab-group": [
+  "workspace:close": [
     {
       "modifiers": [
         "Mod"
@@ -445,22 +453,8 @@
       "key": "W"
     }
   ],
-  "editor:focus-right": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "L"
-    }
-  ],
-  "editor:focus-left": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "H"
-    }
-  ],
+  "editor:open-link-in-new-window": [],
+  "editor:open-link-in-new-split": [],
   "app:toggle-right-sidebar": [
     {
       "modifiers": [
@@ -468,22 +462,6 @@
         "Shift"
       ],
       "key": "L"
-    }
-  ],
-  "editor:focus-bottom": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "J"
-    }
-  ],
-  "editor:focus-top": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "K"
     }
   ],
   "obsidian-shellcommands:shell-command-qaplvw2nve": [
@@ -494,5 +472,32 @@
       ],
       "key": "O"
     }
-  ]
+  ],
+  "workspace:close-others": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "W"
+    }
+  ],
+  "workspace:close-window": [],
+  "workspace:next-tab": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "workspace:previous-tab": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "H"
+    }
+  ],
+  "editor:open-search-replace": []
 }

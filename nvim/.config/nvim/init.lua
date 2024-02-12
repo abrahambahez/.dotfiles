@@ -46,6 +46,7 @@ vim.g.maplocalleader = ' '
 -- [sabhz] vim.set.shiftwidth = 4 to handle tabs as spaces
 vim.api.nvim_set_option('smarttab', false)
 vim.api.nvim_set_option('shiftwidth', 4)
+vim.api.nvim_set_option('shiftwidth', 4)
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -74,17 +75,8 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  -- [sabhz] Markdown support
-  'ixru/nvim-markdown',
-  -- [sabhz] Todo.txt Vim plugin
-  'freitass/todo.txt-vim',
-  -- [sabhz] Klog Time Management syntax plugin
-  '73/vim-klog',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  -- Zen mode
-  'pocco81/true-zen.nvim',
-  'zk-org/zk-nvim',
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   { -- LSP Configuration & Plugins
@@ -100,9 +92,23 @@ require('lazy').setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
-      
-      -- Personal plugins
-      'mattn/emmet-vim'
+      -- [sabhz] Personal plugins
+      -- [sabhz] Emmet to format HTML
+      'mattn/emmet-vim',
+      -- [sabhz] Markdown support
+      'ixru/nvim-markdown',
+      -- [sabhz] Todo.txt Vim plugin
+      'freitass/todo.txt-vim',
+      -- [sabhz] Klog Time Management syntax plugin
+      '73/vim-klog',
+      -- Zen mode [sabhz] modification from original file
+      'folke/zen-mode.nvim',
+      -- Zen mode complement, dimming blocks [sabhz]
+      'folke/twilight.nvim',
+      -- [sabhz] For writing prose
+      'preservim/vim-pencil',
+      -- Zettelkasten markdown plugin [sabhz]
+      'zk-org/zk-nvim',
       },
     },
 
@@ -263,12 +269,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- [[Keymaps for true-zen ]]
-vim.keymap.set("n", "<leader>zn", ":TZNarrow<CR>", {})
-vim.keymap.set("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-vim.keymap.set("n", "<leader>zf", ":TZFocus<CR>", {})
-vim.keymap.set("n", "<leader>zm", ":TZMinimalist<CR>", {})
-vim.keymap.set("n", "<leader>za", ":TZAtaraxis<CR>", {})
+-- [[Keymaps for zen-mode -sabhz modification-]]
+vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", {})
+vim.keymap.set("n", "<leader>zz", ":ZenMode | TogglePencil<CR>", {})
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
