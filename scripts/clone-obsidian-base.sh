@@ -1,22 +1,21 @@
 #!/usr/bin/env bash
 
 # Set base directory and positional argumen variable
-sourceDir=~/.dotfiles/obsidian/
+sourceDir=~/archivo/notas/
 
 # If no positional argument is given, set destination to working directory
 if [ -z "$1" ]; then
-    targetDir=$(pwd)
+    targetDir="$(pwd)/"
 else
     targetDir=$1
 fi
 
-# Copy base directories
-cp -r $sourceDir.obsidian/ $targetDir
-cp -r $sourceDir.pandoc/ $targetDir
-cp "$sourceDir"gitignore $targetDir.gitignore
+# Copy base directories [Temporally suspend feature]
+#cp -r $sourceDir.obsidian/ $targetDir
+#cp -r $sourceDir.pandoc/ $targetDir
 
 # Create Symlinks
-ln "$sourceDir"hotkeys.json $targetDir/.obsidian/
-ln "$sourceDir".obsidian.vimrc $targetDir
-ln "$sourceDir"librero.bib $targetDir
+ln -s "$sourceDir".obsidian/hotkeys.json $targetDir/.obsidian/
+ln -s "$sourceDir".obsidian.vimrc $targetDir
+ln -s "$sourceDir"librero.bib $targetDir
 echo "🪨 Terminado"
