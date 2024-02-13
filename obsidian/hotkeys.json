@@ -276,7 +276,14 @@
       "key": "K"
     }
   ],
-  "command-palette:open": [],
+  "command-palette:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
+  ],
   "app:reload": [
     {
       "modifiers": [

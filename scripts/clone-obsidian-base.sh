@@ -11,7 +11,7 @@ else
 fi
 
 # Copy base directories
-cp -r $sourceDir.obsidian/* $targetDir
+cp -r $sourceDir.obsidian/ $targetDir
 cp -r $sourceDir.pandoc/ $targetDir
 cp "$sourceDir"gitignore $targetDir.gitignore
 
