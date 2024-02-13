@@ -107,6 +107,8 @@ require('lazy').setup({
       'folke/twilight.nvim',
       -- [sabhz] For writing prose
       'preservim/vim-pencil',
+      -- [sabhz] plugin to manage citations
+      'nvim-telescope/telescope-bibtex.nvim',
       -- Zettelkasten markdown plugin [sabhz]
       'zk-org/zk-nvim',
       },
@@ -295,6 +297,11 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    extensions = {
+      bibtex = {
+        global_files = {'~/.dotfiles/obsidian/librero.bib'}
+      }
+    }
   },
 }
 
