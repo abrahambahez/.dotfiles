@@ -13,6 +13,7 @@ export EDITOR=nvim
 #   export EDITOR='mvim'
 # fi
 
+export LANG="es_ES.UTF-8"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -48,3 +49,7 @@ export PATH=$PATH:/home/sabhz/.spicetify
 
 # sourcing some env
 source ~/.profile
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
