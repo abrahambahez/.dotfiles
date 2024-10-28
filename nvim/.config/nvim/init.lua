@@ -64,7 +64,7 @@ Kickstart Guide:
     with something. It's one of my favorite Neovim features.
 
     MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
-    which is very useful when you're not exactly sure of what you're looking for.
+    which is very hen you're not exactly sure of what you're looking for.
 
   I have left several `:help X` comments throughout the init.lua
     These are hints about where to find more information about the relevant settings,
@@ -89,8 +89,18 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
+-- [sabhz] vim.set.shiftwidth = 4 to handle tabs as spaces
+vim.cmd 'lan en_US.UTF-8' -- Workaround to let nvim handle clipboard locale
+-- handle tabs as spaces
+vim.opt.smarttab = true
+vim.opt_local.shiftwidth = 4
 -- Set to true if you have a Nerd Font installed and selected in the terminal
+
+-- [sabhz] Re
+-- Autocmds
+require 'custom.autocmds'
+-- [sabhz] Keymaps
+require 'custom.keymaps'
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
@@ -391,6 +401,17 @@ require('lazy').setup({
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          -- [sabhz]
+          bibtex = {
+            depth = 1,
+            global_files = {
+              '~/archivo/notas/librero.bib',
+            },
+            search_keys = { 'author', 'year', 'title', 'citekey' },
+          },
+          heading = {
+            treesitter = true,
           },
         },
       }
@@ -779,9 +800,9 @@ require('lazy').setup({
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          --['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -840,6 +861,7 @@ require('lazy').setup({
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
+    opts = { transparent = true },
   },
 
   -- Highlight todo, notes, etc in comments
@@ -929,7 +951,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

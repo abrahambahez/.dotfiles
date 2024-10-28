@@ -13,3 +13,13 @@ stow -t "$HOME" PACKAGE
 
 example: `stow -t "$HOME" rofi`
 
+## Features
+
+### ZSH
+
+La configuración de zsh usa [oh-my-zsh](https://ohmyz.sh/) para los temas.
+También usa [antibidy](https://getantibody.github.io/) como *plugin manager*.
+
+### Neovim
+
+Neovim usa [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master) como base para el editor.
