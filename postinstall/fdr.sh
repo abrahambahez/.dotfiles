@@ -8,7 +8,7 @@ echo "Actualizando sistema"
 sudo dnf update
 
 echo "Instalando software inicial"
-sudo dnf install -y zsh neovim stow kitty ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift python3-pip  # If treesitter compiling throws error: install g++
+sudo dnf install -y zsh neovim stow copr ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift python3-pip  # If treesitter compiling throws error: install g++
 
 # It can be uninstalled: about:support in Firefox > Application Basics > Profile Directory > Open Directory — and delete the “chrome” folder.
 #echo "Instalando script para tema en Firefox"
@@ -28,7 +28,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Install Obsidian & Zotero
 echo "Instalando software desde Flathub"
-flatpak install -y flathub md.obsidian.Obsidian org.zotero.Zotero com.spotify.Client
+flatpak install -y flathub md.obsidian.Obsidian org.zotero.Zotero com.spotify.Client flathub app.zen_browser.zen
 
 # Set adwaita-dark theme for Zotero
 sudo flatpak override --env=GTK_THEME=Adwaita-dark org.zotero.Zotero
@@ -75,10 +75,21 @@ echo "Instalando manejadores de Javascript"
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 nvm install npm
 
+echo "Instalando UV Python"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+echo "Instalando TERMINAL Ghostty COPR"
+dnf copr enable pgdev/ghostty
+dnf install ghostty
+
+echo "Instalando Espanso desde COPR"
+sudo dnf copr enable eclipseo/espanso
+sudo dnf install espanso espanso-wayland
+
 # Run script to change kitty icons
-echo "Cambiando íconos de Kitty terminal"
-sudo chmod +x ~/.dotfiles/scripts/fdr_kitty_logo.sh
-~/.dotfiles/scripts/fdr_kitty_logo.sh
+# echo "Cambiando íconos de Kitty terminal"
+# sudo chmod +x ~/.dotfiles/scripts/fdr_kitty_logo.sh
+# ~/.dotfiles/scripts/fdr_kitty_logo.sh
 
 echo "Proceso terminado.\n\nConfigura últimos retoques vía GUI: Gnome Tweaks + Shell extensions\n\nSe cerrará la sesión..."
 
