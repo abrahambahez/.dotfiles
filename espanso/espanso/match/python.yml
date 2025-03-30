@@ -1,0 +1,13 @@
+name: Python
+matches:
+  - trigger: "ipy  "
+    replace: "__init__.py"
+
+  - trigger: "pyreq u"
+    replace: "pip3 freeze | grep $|$ >> requirements.txt"
+
+  - trigger: "pydoc"
+    replace: "\"\"\"$|$\n\"\"\""
+
+  - trigger: "pym"
+    replace: "py -m"

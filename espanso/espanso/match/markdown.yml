@@ -1,0 +1,15 @@
+name: Markdown
+matches:
+  - trigger: "blog  "
+    replace: "---\ntitle: \"\"\ncreatedAt: \"\"\nupdatedAt: \"\"\n---"
+  - trigger: "*  "
+    replace: "*$|$*"
+
+  - trigger: "**  "
+    replace: "**$|$**"
+
+  - trigger: "[]  "
+    replace: "- [ ] "
+
+  - trigger: "[  "
+    replace: "[$|$]()"

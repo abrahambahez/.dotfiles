@@ -1,0 +1,90 @@
+name: base
+matches:
+  - trigger: "c  "
+    replace: "«$|$»"
+
+  - trigger: "ca  "
+    replace: "«"
+
+  - trigger: "cc  "
+    replace: "»"
+
+  - trigger: "ang  "
+    replace: "<$|$>"
+
+  - trigger: "ana  "
+    replace: "<"
+
+  - trigger: "anc  "
+    replace: ">"
+
+  - trigger: "fle  "
+    replace: "-->"
+
+  - trigger: "ffle  "
+    replace: "=>"
+
+  - trigger: "sect "
+    replace: "§ "
+
+  # Markdown syntax
+  - trigger: "mdcm "
+    replace: "<!--$|$-->"
+
+  - trigger: "mdcd "
+    replace: "```\n$|$\n```"
+
+  - trigger: "mdjs "
+    replace: "```js\n$|$\n```"
+
+  # Dynamic
+  - trigger: "dt "
+    replace: "{{today}}"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: "tm "
+    replace: "{{now}}"
+    vars:
+      - name: now
+        type: date
+        params:
+          format: "%H:%M"
+
+  - trigger: "dtm "
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%dT%H:%M"
+
+  - trigger: "dtid "
+    replace: "{{date_id}}"
+    vars:
+      - name: date_id
+        type: date
+        params:
+          format: "%Y%m%d%H%M"
+
+  # PERSONAL
+  - trigger: "mmail"
+    replace: "s.abrahambh@gmail.com"
+
+  - trigger: "bmac"
+    replace: "https://buymeacoffee.com/sabhz"
+
+  - trigger: "mLinkedIn"
+    replace: "https://www.linkedin.com/in/sergio-barrera-1b9110323/?locale=en_US"
+
+  - trigger: "mweb"
+    replace: "https://sabhz.com/"
+
+  - trigger: "mgithub"
+    replace: "https://github.com/abrahambahez"
+
+  - trigger: "morcid"
+    replace: "0009-0002-1457-5203"

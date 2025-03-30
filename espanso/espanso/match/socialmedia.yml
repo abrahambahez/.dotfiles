@@ -1,0 +1,17 @@
+name: Social Media Shortcuts
+matches:
+  - trigger: "fb  "
+    replace: "Facebook"
+
+  - trigger: "tw  "
+    replace: "Twitter"
+
+  - trigger: "tk  "
+    replace: "Tiktok"
+
+  - trigger: "yt  "
+    replace: "YouTube"
+
+
+  - trigger: "tch  "
+    replace: "Twitch"
