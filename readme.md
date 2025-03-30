@@ -23,3 +23,4 @@ También usa [antibidy](https://getantibody.github.io/) como *plugin manager*.
 ### Neovim
 
 Neovim usa [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master) como base para el editor.
+
