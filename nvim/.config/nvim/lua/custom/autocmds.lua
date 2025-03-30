@@ -1,76 +1,89 @@
 local markdown_group = vim.api.nvim_create_augroup('MarkdownSettings', { clear = true })
 
--- Variable global para trackear el estado de ZenMode
-vim.g.markdown_zen_active = false
+-- NOTE: Global variable to track Zen Mode State is
+-- `vim.g.markdown_zen_active` and its declared
+-- in ZenMode options 'lua/custom/plugins/init.lua'
 
--- Función para aplicar configuraciones básicas
+-- Function to apply basic settings
 local function apply_basic_settings()
   vim.opt_local.wrap = true
   vim.opt_local.spelllang = 'es,en'
   vim.opt_local.conceallevel = 2
-
   -- Cargar extensión bibtex de forma segura
   pcall(function()
     require('telescope').load_extension 'bibtex'
   end)
 end
 
--- Función para activar ZenMode y PencilSoft
+-- Activate Zen Mode
 local function activate_zen_mode()
   -- Solo activamos si no está ya activo
   if not vim.g.markdown_zen_active then
-    -- Verificamos si los comandos existen
+    -- Verify if cmd exist
     local function cmd_exists(command)
       return vim.fn.exists(':' .. command) == 2
     end
-
-    -- Intentamos activar los comandos de forma segura
-    if cmd_exists 'ZenMode' then
-      pcall(vim.cmd, 'ZenMode')
-      vim.g.markdown_zen_active = true
-    end
-    if cmd_exists 'PencilSoft' then
-      pcall(vim.cmd, 'PencilSoft')
+    if cmd_exists 'ZenMode' and cmd_exists 'PencilSoft' then
+      vim.cmd 'ZenMode'
+      vim.cmd 'PencilSoft'
+      print('Markdown Zen Active: ' .. tostring(vim.g.markdown_zen_active))
     end
   end
 end
 
 -- Función para desactivar ZenMode
 local function deactivate_zen_mode()
-  if vim.g.markdown_zen_active then
-    if vim.fn.exists ':ZenMode' == 2 then
-      pcall(vim.cmd, 'ZenMode')
-      vim.g.markdown_zen_active = false
-    end
+  -- Verify if cmd exist
+  local function cmd_exists(command)
+    return vim.fn.exists(':' .. command) == 2
+  end
+  -- Deactivate
+  if cmd_exists 'ZenMode' and cmd_exists 'Pencil' then
+    vim.cmd 'ZenMode'
+    vim.cmd 'PencilOff'
+    print('Markdown Zen Active: ' .. tostring(vim.g.markdown_zen_active))
   end
 end
 
--- AutoCmd para configuraciones básicas
+-- AutoCmd for basic setting
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown', 'txt' },
   group = markdown_group,
   callback = function()
     apply_basic_settings()
-    -- Activamos ZenMode solo si es el primer archivo markdown que se abre
-    if not vim.g.markdown_zen_active then
-      vim.defer_fn(activate_zen_mode, 100)
-    end
+    vim.defer_fn(activate_zen_mode, 100)
   end,
 })
 
--- AutoCmd para cuando sales de un archivo markdown
-vim.api.nvim_create_autocmd('BufLeave', {
-  pattern = { '*.md', '*.txt' },
-  group = markdown_group,
-  callback = function()
-    -- Verificamos si el siguiente buffer NO es markdown
-    local next_ft = vim.bo.filetype
-    if next_ft ~= 'markdown' and next_ft ~= 'txt' then
-      vim.defer_fn(deactivate_zen_mode, 100)
-    end
-  end,
-})
-
+-- AutoCmd para manejar conmutación de buffers markdown/txt
+-- vim.api.nvim_create_autocmd('BufEnter', {
+--   pattern = { '*.md', '*.txt' },
+--   group = markdown_group,
+--   callback = function()
+--     -- Activar ZenMode solo si no está activo
+--     if not vim.g.markdown_zen_active then
+--       vim.defer_fn(activate_zen_mode, 100)
+--     end
+--   end,
+-- })
+--
+-- -- AutoCmd para cuando sales de un archivo markdown
+-- vim.api.nvim_create_autocmd('BufLeave', {
+--   pattern = { '*.md', '*.txt' },
+--   group = markdown_group,
+--   callback = function()
+--     -- Obtener el próximo buffer
+--     local next_buf = vim.fn.bufnr '#'
+--     -- Use vim.bo to get buffer-local options (replaces deprecated nvim_buf_get_option)
+--     local next_ft = vim.bo[next_buf].filetype
+--
+--     -- Desactivar ZenMode si el próximo buffer NO es markdown/txt
+--     if next_ft ~= 'markdown' and next_ft ~= 'txt' then
+--       vim.defer_fn(deactivate_zen_mode, 100)
+--     end
+--   end,
+-- })
+--
 -- Comando para alternar ZenMode manualmente
 vim.api.nvim_create_user_command('ToggleMarkdownZen', function()
   if vim.g.markdown_zen_active then
@@ -78,4 +91,9 @@ vim.api.nvim_create_user_command('ToggleMarkdownZen', function()
   else
     activate_zen_mode()
   end
+end, {})
+
+-- Comando para mostrar estado actual de ZenMode
+vim.api.nvim_create_user_command('ShowMarkdownZenStatus', function()
+  print('Markdown Zen Active: ' .. tostring(vim.g.markdown_zen_active))
 end, {})

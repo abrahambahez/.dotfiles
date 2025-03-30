@@ -8,12 +8,12 @@ return {
   -- Markdown support
   'ixru/nvim-markdown',
   -- For dimming blocks
-  {
-    'folke/twilight.nvim',
-    opts = {
-      context = 10,
-    },
-  },
+  -- {
+  --   'folke/twilight.nvim',
+  --   opts = {
+  --     context = 10,
+  --   },
+  --},
   {
     'mfussenegger/nvim-lint',
     optional = true,
@@ -45,7 +45,32 @@ return {
           font = '20', -- font size
         },
       },
+      on_open = function()
+        vim.g.markdown_zen_active = true
+      end,
+      on_close = function()
+        vim.g.markdown_zen_active = false
+      end,
     },
   },
   -- 'junegunn/goyo.vim',
+
+  {
+    'zk-org/zk-nvim',
+    config = function()
+      require('zk').setup {
+        picker = 'telescope',
+        lsp = {
+          config = {
+            cmd = { 'zk', 'lsp' },
+            name = 'zk',
+          },
+        },
+        auto_attach = {
+          enabled = true,
+          filetypes = { 'markdown', 'md' },
+        },
+      }
+    end,
+  },
 }

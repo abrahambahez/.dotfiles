@@ -406,7 +406,7 @@ require('lazy').setup({
           bibtex = {
             depth = 1,
             global_files = {
-              '~/archivo/notas/librero.bib',
+              '/Users/sabhz/archivo/librero.bib',
             },
             search_keys = { 'author', 'year', 'title', 'citekey' },
           },

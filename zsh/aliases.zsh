@@ -6,9 +6,15 @@ alias gp="git pull"
 alias gps="git push -u origin main"
 alias gb="git branch"
 function gcl () { git clone "$1" }
-function gc () { git commit -m "$1" }
+#function gc () { git commit -m "$1" }
 function gca () { git add -A && git commit -m "$1" }
 alias kpclone="~/.dotfiles/scripts/clonekp.sh"
+
+# Depends on npm i -g semantic-git-commit-cli
+alias gc=sgc
+
+# Python
+alias py="python3"
 
 # Navigation
 #
@@ -36,15 +42,30 @@ alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # maco
 # ZK Aliases
 # dependent on `brew install zk`
 
-notes_base_dir="/Users/sabhz/archivo/docs"
-function nt () {
+notes_base_dir="/Users/sabhz/archivo/idearium/notas/"
+
+alias nt="cd $notes_base_dir"
+
+function nn () {
+    # Search or create
     cd $notes_base_dir;
     zk edit --interactive
 }
 
-function ni () {
+function ntg () {
+    # Edit notes with inbox tag
     cd $notes_base_dir;
-    zk edit --tag "inbox" --interactive
+    zk edit --tag "$1" --interactive
+}
+
+function nd () {
+    cd $notes_base_dir;
+    zk new --group journal --no-input
+}
+
+function blog () {
+    cd ~/Documents/dev/sabhz-web/src/content/blog/
+    zk edit --interactive
 }
 
 # Linux Only 👇
