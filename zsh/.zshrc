@@ -33,6 +33,9 @@ bindkey -v '^?' backward-delete-char
 # aliases
 source ~/aliases.zsh
 
+# Source local bin
+export PATH="$HOME/.local/bin:$PATH"
+
 ###
 # POWERLEVEL10K CONFIG
 ###

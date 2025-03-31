@@ -70,8 +70,13 @@ function blog () {
 
 # Linux Only 👇
 
-alias opn="xdg-open"
+# Check if we are on Linux
+if [[ "$(uname)" == "Linux" ]]; then
+    # Set Linux-only alias
+    alias open="xdg-open"
+fi
 
+alias cd=z
 # ALIASES WITH DEPENDENCIES
 #
 # Fedora: npm i libgen-downloader cli

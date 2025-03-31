@@ -78,9 +78,12 @@ nvm install npm
 echo "Instalando UV Python"
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+echo "Instalando Zoxide"
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
 echo "Instalando TERMINAL Ghostty COPR"
-dnf copr enable pgdev/ghostty
-dnf install ghostty
+sudo dnf copr enable pgdev/ghostty
+sudo dnf install ghostty
 
 echo "Instalando Espanso desde COPR"
 sudo dnf copr enable eclipseo/espanso
