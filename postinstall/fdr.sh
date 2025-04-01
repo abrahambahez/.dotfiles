@@ -8,7 +8,7 @@ echo "Actualizando sistema"
 sudo dnf update
 
 echo "Instalando software inicial"
-sudo dnf install -y zsh neovim stow copr ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift python3-pip  # If treesitter compiling throws error: install g++
+sudo dnf install -y zsh neovim stow copr ImageMagick gnome-shell-extension-pop-shell xprop curl wget util-linux-user fzf fd-find pandoc g++ timeshift python3-pip ulauncher # If treesitter compiling throws error: install g++
 
 # It can be uninstalled: about:support in Firefox > Application Basics > Profile Directory > Open Directory — and delete the “chrome” folder.
 #echo "Instalando script para tema en Firefox"

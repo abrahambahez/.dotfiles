@@ -42,7 +42,7 @@ alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # maco
 # ZK Aliases
 # dependent on `brew install zk`
 
-notes_base_dir="/Users/sabhz/archivo/idearium/notas/"
+notes_base_dir=/home/sabhz/archivo/idearium/notas
 
 alias nt="cd $notes_base_dir"
 
