@@ -2,7 +2,7 @@
 
 # Check dependencies git stow, antibody
 
-for i in stow antibody nvim zsh kitty 
+for i in stow antibody nvim zsh ghostty espanso
 do 
     if ! command -v $i &> /dev/null
     then
@@ -17,7 +17,10 @@ done
 
 stow nvim
 stow zsh
-stow kitty
+stow ghostty
+
+# Try to stow to espanso location in macos
+stow -t ~/Library/Application\ Support -d ~/.dotfiles espanso
 
 # Use antibody
 # Consider change antibody for antidote (newer implementation) https://github.com/mattmc3/antidote
