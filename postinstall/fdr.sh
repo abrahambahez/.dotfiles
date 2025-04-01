@@ -28,7 +28,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 # Install Obsidian & Zotero
 echo "Instalando software desde Flathub"
-flatpak install -y flathub md.obsidian.Obsidian org.zotero.Zotero com.spotify.Client flathub app.zen_browser.zen
+flatpak install -y flathub md.obsidian.Obsidian org.zotero.Zotero com.spotify.Client app.zen_browser.zen it.mijorus.gearlever com.mattjakeman.ExtensionManager
 
 # Set adwaita-dark theme for Zotero
 sudo flatpak override --env=GTK_THEME=Adwaita-dark org.zotero.Zotero
