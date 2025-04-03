@@ -9,13 +9,13 @@ matches:
   - trigger: "cc  "
     replace: "»"
 
-  - trigger: "ang  "
+  - trigger: "a  "
     replace: "<$|$>"
 
-  - trigger: "ana  "
+  - trigger: "aa  "
     replace: "<"
 
-  - trigger: "anc  "
+  - trigger: "ac  "
     replace: ">"
 
   - trigger: "fle  "
@@ -88,3 +88,4 @@ matches:
 
   - trigger: "morcid"
     replace: "0009-0002-1457-5203"
+
