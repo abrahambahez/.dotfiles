@@ -1,2 +1,0 @@
-date,repository,installation, notes
-2023-05-07,sudo dnf copr enable dani/qgis,sudo dnf install qgis python3-qgis qgis-grass, instalación de QGis para la tesis

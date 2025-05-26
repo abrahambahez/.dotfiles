@@ -1,26 +1,15 @@
- # Welcome to my dotfiles
+# Welcome to my dotfiles
 
- Simple personal dotfiles repo using stow to manage config files across Macos and Linux.
+Dependencies:
 
-## Using stow with this tree structure
+- [Lnk](https://github.com/yarlson/lnk)
 
-Make sure you follow the tree structure pattern.
-If you're in `.dotfiles/` then:
+## Notes
 
-```bash
-stow -t "$HOME" PACKAGE
-```
+- ZSH uses
+    - [Antidote](https://antidote.sh/)
+    - [oh-my-zsh](https://ohmyz.sh/)
+- Neovim uses
+    - [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master)
 
-example: `stow -t "$HOME" rofi`
-
-## Features
-
-### ZSH
-
-La configuración de zsh usa [oh-my-zsh](https://ohmyz.sh/) para los temas.
-También usa [antibidy](https://getantibody.github.io/) como *plugin manager*.
-
-### Neovim
-
-Neovim usa [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master) como base para el editor.
 
