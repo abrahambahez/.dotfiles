@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")"  # Ensure we are in ~/.dotfiles
 
-# Unstow packages under .config from $HOME/.config
-CONFIG_PACKAGES=(
+CONFIG_TARGET="$HOME/.config"
+HOME_TARGET="$HOME"
+
+# Same config directories used in link.sh
+CONFIG_DIRS=(
   espanso
   ghostty
   kitty
@@ -13,18 +16,29 @@ CONFIG_PACKAGES=(
   uv
 )
 
-for pkg in "${CONFIG_PACKAGES[@]}"; do
-  echo "Unstowing .config/$pkg from $HOME/.config"
-  stow --dir=.config --target="$HOME/.config" --verbose -D "$pkg"
+echo "🗑️ Unlinking config directories from $CONFIG_TARGET..."
+for dir in "${CONFIG_DIRS[@]}"; do
+  dest="$CONFIG_TARGET/$dir"
+
+  if [[ -L "$dest" ]]; then
+    echo " • Removing symlink: $dest"
+    rm "$dest"
+  elif [[ -e "$dest" ]]; then
+    echo " ⚠️ Warning: $dest exists but is not a symlink. Skipping."
+  fi
 done
 
-# Unstow home-level dotfiles (like .zshrc) from $HOME
-HOME_PACKAGES=(
-  zsh
-)
+echo "🗑️ Unlinking files in zsh/ from $HOME_TARGET..."
+find zsh -maxdepth 1 -type f | while read -r filepath; do
+  filename="$(basename "$filepath")"
+  dest="$HOME_TARGET/$filename"
 
-for pkg in "${HOME_PACKAGES[@]}"; do
-  echo "Unstowing $pkg from $HOME"
-  stow --target="$HOME" --verbose -D "$pkg"
+  if [[ -L "$dest" ]]; then
+    echo " • Removing symlink: $dest"
+    rm "$dest"
+  elif [[ -e "$dest" ]]; then
+    echo " ⚠️ Warning: $dest exists but is not a symlink. Skipping."
+  fi
 done
 
+echo "✅ All symlinks removed (where applicable)."

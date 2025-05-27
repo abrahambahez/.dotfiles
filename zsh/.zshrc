@@ -3,6 +3,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# source antidote
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
+
+# Move antidote cache
+export ANTIDOTE_HOME=~/.cache/antidote
+
+# --------------
+### MORE CONFIG
+# --------------
 export EDITOR=nvim
 export LANG="es_ES.UTF-8"
 autoload zmv

@@ -1,6 +1,6 @@
-font-size=18
+font-size=16
 #background=#15141A
-background-opacity=0.5
+background-opacity=0.9
 background-blur=true
 # Window config
 window-padding-balance = true
