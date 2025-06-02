@@ -1,8 +1,10 @@
 # Welcome to my dotfiles
 
-Dependencies:
+This dotfiles configuration uses a simple `link.sh` script to create symlinks either in the user root or in `.config` folder.
 
-- [Lnk](https://github.com/yarlson/lnk)
+It also contains an `unlink.sh` script to remove the symlinks.
+
+The scripts are manually mantained.
 
 ## Notes
 
@@ -11,5 +13,8 @@ Dependencies:
     - [oh-my-zsh](https://ohmyz.sh/)
 - Neovim uses
     - [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master)
+- Ghostty is my current terminal of choice
 
+
+See also my [post-install scripts](https://github.com/abrahambahez/postinstall).
 

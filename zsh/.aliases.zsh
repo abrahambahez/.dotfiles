@@ -35,6 +35,7 @@ alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # maco
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias open="xdg-open"
+  alias icedrive="IcedriveCLI-v3.33"
 fi
 
 # ALIASES WITH DEPENDENCIES
