@@ -49,7 +49,7 @@ alias lib="libgen-downloader"
 # ZK Aliases
 # dependent on `brew install zk`
 
-notes_base_dir="/Users/sabhz/archivo/idearium/notas/"
+notes_base_dir="$HOME/Archivo/idearium/notas/"
 
 alias nt="cd $notes_base_dir"
 

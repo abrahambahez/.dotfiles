@@ -29,5 +29,7 @@ source ~/.aliases.zsh
 source ~/.profile
 # . "$HOME/.local/bin/env"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ "$(uname)" == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
