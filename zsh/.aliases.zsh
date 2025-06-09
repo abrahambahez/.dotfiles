@@ -31,15 +31,17 @@ alias zshrc="nvim ~/.zshrc"
 alias v="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 
-# Linux Only 👇
+# OS Specific Logic 👇
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias open="xdg-open"
   alias icedrive="IcedriveCLI-v3.33"
   alias copy="wl-copy"
+  alias paste="wl-paste"
   BLOGDIR="~/Archivo/dev/sabhz-web/src/content/blog/"
 elif [[ "$(uname)" == "Darwin" ]]; then
   alias copy="pbcopy"
+  alias paste="pbpaste"
   BLOGDIR="$HOME/Archivo/dev/sabhz-web/src/content/blog/"
 fi
 # BLOGDIR="~/dev/sabhz-web/src/content/blog/"
