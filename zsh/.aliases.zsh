@@ -36,7 +36,11 @@ alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # maco
 if [[ "$(uname)" == "Linux" ]]; then
   alias open="xdg-open"
   alias icedrive="IcedriveCLI-v3.33"
+  BLOGDIR="~/Archivo/dev/sabhz-web/src/content/blog/"
 fi
+# BLOGDIR="~/dev/sabhz-web/src/content/blog/"
+
+alias blog="cd $BLOGDIR"
 
 # ALIASES WITH DEPENDENCIES
 #
@@ -49,29 +53,7 @@ alias lib="libgen-downloader"
 # ZK Aliases
 # dependent on `brew install zk`
 
-notes_base_dir="$HOME/Archivo/idearium/notas/"
-
-alias nt="cd $notes_base_dir"
-
-function nn () {
-    # Search or create
-    cd $notes_base_dir;
-    zk edit --interactive
-}
-
-function ntg () {
-    # Edit notes with inbox tag
-    cd $notes_base_dir;
-    zk edit --tag "$1" --interactive
-}
-
-function nd () {
-    cd $notes_base_dir;
-    zk new --group journal --no-input
-}
-
-function blog () {
-    cd ~/Documents/dev/sabhz-web/src/content/blog/
-    zk edit --interactive
-}
+alias zn="zk edit --interactive"
+function zt() { zk edit --tag "$1" --interactive}
+alias zd="zk new --group journal --no-input"
 

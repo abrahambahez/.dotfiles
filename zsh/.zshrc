@@ -17,6 +17,7 @@ export ANTIDOTE_HOME=~/.cache/antidote
 # --------------
 export EDITOR=nvim
 export LANG="es_ES.UTF-8"
+export PATH="$HOME/.local/bin:$PATH" # Add local path for scripts
 autoload zmv
 bindkey -v # use vi key bindings 
 bindkey -v '^?' backward-delete-char # avoid the annoying backspace/delete issue

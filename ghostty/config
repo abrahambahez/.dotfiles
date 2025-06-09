@@ -6,4 +6,4 @@ background-blur=true
 window-padding-balance = true
 macos-titlebar-style = tabs
 window-decoration = auto
-theme = dark:tokyonight_moon,light:tokyonight-day
+theme = dark:tokyonight_night,light:tokyonight-day
