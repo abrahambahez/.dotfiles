@@ -36,7 +36,11 @@ alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # maco
 if [[ "$(uname)" == "Linux" ]]; then
   alias open="xdg-open"
   alias icedrive="IcedriveCLI-v3.33"
+  alias copy="wl-copy"
   BLOGDIR="~/Archivo/dev/sabhz-web/src/content/blog/"
+elif [[ "$(uname)" == "Darwin" ]]; then
+  alias copy="pbcopy"
+  BLOGDIR="$HOME/Archivo/dev/sabhz-web/src/content/blog/"
 fi
 # BLOGDIR="~/dev/sabhz-web/src/content/blog/"
 
@@ -52,7 +56,6 @@ alias lib="libgen-downloader"
 
 # ZK Aliases
 # dependent on `brew install zk`
-
 alias zn="zk edit --interactive"
 function zt() { zk edit --tag "$1" --interactive}
 alias zd="zk new --group journal --no-input"
