@@ -1,3 +1,10 @@
+-- ASTRO file declaration
+vim.filetype.add {
+  extension = {
+    astro = 'astro',
+  },
+}
+-- Autostart markdown configuration
 local markdown_group = vim.api.nvim_create_augroup('MarkdownSettings', { clear = true })
 
 -- NOTE: Global variable to track Zen Mode State is
