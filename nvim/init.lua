@@ -407,6 +407,7 @@ require('lazy').setup({
             depth = 1,
             global_files = {
               '/home/sabhz/Archivo/idearium/notas/librero.bib',
+              '~/Archivo/idearium/librero.bib',
             },
             search_keys = { 'author', 'year', 'title', 'citekey' },
           },

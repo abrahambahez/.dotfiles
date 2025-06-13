@@ -37,7 +37,7 @@ map('n', '<leader>st', ':Telescope heading<CR>', { desc = 'Search Heading with T
 
 -- ACTIVATE WRITING MODE (SEE autocmd.lua)
 map('n', '<leader>zw', ':ToggleMarkdownZen<CR>')
-map('n', '<leader>f', ':PencilSoft<CR>')
+map('n', '<leader>zz', ':PencilSoft<CR>')
 
 -- INDENTATION
 -- Modo NORMAL y VISUAL: Tab indenta hacia la derecha, Shift+Tab hacia la izquierda
@@ -50,21 +50,59 @@ vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true })
 local opts = { noremap = true, silent = false }
 
 -- Create a new note after asking for its title.
-vim.api.nvim_set_keymap('n', '<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+-- vim.api.nvim_set_keymap('n', '<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+
+-- vim.api.nvim_set_keymap('n', '<leader>zR', "<Cmd>ZkNew { title = vim.fn.input('Title: '), group = 'reference' }<CR>", opts)
+
+vim.keymap.set('v', '<leader>zr', function()
+  vim.cmd 'normal! "zy'
+  vim.cmd("ZkNew { title = '" .. vim.fn.getreg('z'):gsub("'", "\\'") .. "', group = 'reference' }")
+end, { desc = 'Create reference note from visual selection' })
 
 -- Open notes.
 vim.keymap.set('n', '<leader>zf', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
 
+-- Open buffer notes
+vim.keymap.set('n', '<leader>z ', '<Cmd>ZkBuffers<CR>', opts)
+
 -- Open notes associated with the selected tags.
 vim.keymap.set('n', '<leader>zt', '<Cmd>ZkTags<CR>', opts)
 
--- Search for the notes matching a given query.
--- vim.keymap.set('n', '<leader>zf', "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", opts)
 -- Search for the notes matching the current visual selection.
 vim.keymap.set('v', '<leader>zF', ":'<,'>ZkMatch<CR>", opts)
 
+-- Search backlinks of the current note
 vim.keymap.set('n', '<leader>zb', ':<Cmd>ZkBacklinks<CR>', opts)
 
+-- Search links
 vim.keymap.set('n', '<leader>zl', ':<Cmd>ZkLinks<CR>', opts)
 
+-- Create note from selection
 vim.keymap.set('v', '<leader>zN', ":'<,'>ZkNewFromTitleSelection<CR>", opts)
+
+-- Custom function to create reference notes
+local function create_reference_note_from_bibtex()
+  require('telescope').extensions.bibtex.bibtex {
+    attach_mappings = function(prompt_bufnr, map)
+      local actions = require 'telescope.actions'
+      local action_state = require 'telescope.actions.state'
+
+      -- Override the default <CR> action
+      map('i', '<CR>', function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+
+        if selection then
+          -- The citekey is in selection.id.name
+          local citekey = '@' .. selection.id.name
+          -- Create the note with the citekey as title
+          vim.cmd(string.format("ZkNew { title = '%s', group = 'reference' }", citekey))
+        end
+      end)
+
+      return true
+    end,
+  }
+end
+
+vim.keymap.set('n', '<leader>zc', create_reference_note_from_bibtex, { desc = 'Create reference note from BibTeX' })
