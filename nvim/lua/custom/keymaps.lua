@@ -95,8 +95,9 @@ local function create_reference_note_from_bibtex()
         if selection then
           -- The citekey is in selection.id.name
           local citekey = '@' .. selection.id.name
+          local reference_display = selection.display:gsub("\\'", "'"):gsub('\\{', ''):gsub("'", "\\'")
           -- Create the note with the citekey as title
-          vim.cmd(string.format("ZkNew { title = '%s', group = 'reference' }", citekey))
+          vim.cmd(string.format("ZkNew { group = 'reference', title = '%s', extra = { reference = '%s'} }", citekey, reference_display))
         end
       end)
 
