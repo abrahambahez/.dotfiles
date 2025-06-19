@@ -56,6 +56,9 @@ alias gc=sgc
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
 
+# Restart espanso
+alias respanso="espanso stop && espanso start"
+
 # ZK Aliases
 # dependent on `brew install zk`
 alias zn="zk edit --interactive"
