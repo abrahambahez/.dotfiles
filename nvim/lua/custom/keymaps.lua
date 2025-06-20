@@ -6,6 +6,9 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- Open Diagnostic Error Message
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+
 -- COPY CURRENT FILE TO CLIPBOARD
 vim.keymap.set('n', '<leader>cf', function()
   local filename = vim.fn.expand '%:t'

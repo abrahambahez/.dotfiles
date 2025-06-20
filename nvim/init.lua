@@ -96,7 +96,6 @@ vim.opt.smarttab = true
 vim.opt_local.shiftwidth = 4
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 
--- [sabhz] Re
 -- Autocmds
 require 'custom.autocmds'
 -- [sabhz] Keymaps
@@ -641,9 +640,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {},
         --
-
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -674,11 +671,17 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'astro',
-        'ts_ls',
+        'typescript-language-server',
+        'eslint-lsp',
+        'prettierd', -- or "prettier"
+        'html-lsp',
+        'css-lsp',
+        'json-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -932,9 +935,10 @@ require('lazy').setup({
         'python',
         'javascript',
         'typescript',
+        'tsx',
         'astro',
-        'html',
         'css',
+        'json',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
