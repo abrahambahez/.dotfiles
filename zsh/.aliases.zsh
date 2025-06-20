@@ -28,7 +28,8 @@ alias zshrc="nvim ~/.zshrc"
 
 # Miscelaneous
 #
-alias v="nvim"
+alias v="nvim ."
+alias vim="nvim"
 alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 
 # OS Specific Logic 👇
