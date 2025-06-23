@@ -3,6 +3,12 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  {
+    'Kicamon/markdown-table-mode.nvim',
+    config = function()
+      require('markdown-table-mode').setup()
+    end,
+  },
   'nvim-pack/nvim-spectre',
   -- [sabhz]
   -- Markdown support
