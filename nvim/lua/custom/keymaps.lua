@@ -5,9 +5,12 @@ local function map(mode, lhs, rhs, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
 end
+-- Use NetRW as file manager
+-- Open file explotarion
+vim.keymap.set('n', '<S-H>', ':Ex<CR>')
 
 -- Open Diagnostic Error Message
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>oe', vim.diagnostic.open_float)
 
 -- COPY CURRENT FILE TO CLIPBOARD
 vim.keymap.set('n', '<leader>cf', function()
