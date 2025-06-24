@@ -7,13 +7,13 @@ local function map(mode, lhs, rhs, opts)
 end
 -- Use NetRW as file manager
 -- Open file explotarion
-vim.keymap.set('n', '<S-H>', ':Ex<CR>')
+vim.keymap.set('n', '<leader>oe', ':Ex<CR>')
 
 -- Open Diagnostic Error Message
-vim.keymap.set('n', '<leader>oe', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>od', vim.diagnostic.open_float)
 
 -- COPY CURRENT FILE TO CLIPBOARD
-vim.keymap.set('n', '<leader>cf', function()
+vim.keymap.set('n', '<leader>dc', function()
   local filename = vim.fn.expand '%:t'
   if filename ~= '' then
     vim.fn.setreg('+', filename)
@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>cf', function()
 end, { desc = 'Copy filename to clipboard' })
 
 -- DELETE CURRENT FILE
-vim.keymap.set('n', '<leader>df', function()
+vim.keymap.set('n', '<leader>dd', function()
   local file = vim.fn.expand '%:p'
   if file ~= '' then
     local choice = vim.fn.confirm('Delete "' .. vim.fn.fnamemodify(file, ':t') .. '"?', '&Yes\n&No', 2)
