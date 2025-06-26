@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 -- Use NetRW as file manager
 -- Open file explotarion
-vim.keymap.set('n', '<leader>oe', ':Ex<CR>')
+vim.keymap.set('n', '<leader>-', ':Ex<CR>')
 
 -- Open Diagnostic Error Message
 vim.keymap.set('n', '<leader>od', vim.diagnostic.open_float)
