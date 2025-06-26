@@ -677,6 +677,7 @@ require('lazy').setup({
         'html-lsp',
         'css-lsp',
         'json-lsp',
+        'gopls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -941,6 +942,7 @@ require('lazy').setup({
         'astro',
         'css',
         'json',
+        'go',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
