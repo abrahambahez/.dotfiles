@@ -18,7 +18,7 @@ alias py="python3"
 alias l="ls --color=auto"
 alias ll="ls -la --color=auto"
 ## go to dir using fzf
-function zdir () {
+function zd () {
     cd $(find * -type d | fzf)
 }
 
@@ -30,7 +30,6 @@ alias zshrc="nvim ~/.zshrc"
 #
 alias vi="nvim ."
 alias v="nvim"
-alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 
 # OS Specific Logic 👇
 
@@ -44,15 +43,23 @@ elif [[ "$(uname)" == "Darwin" ]]; then
   alias copy="pbcopy"
   alias paste="pbpaste"
   BLOGDIR="$HOME/Archivo/dev/sabhz-web/src/content/blog/"
+  alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 fi
-# BLOGDIR="~/dev/sabhz-web/src/content/blog/"
 
 alias blog="cd $BLOGDIR"
+
+function mdcat(){ mdcat.sh -i "$1" }
 
 # ALIASES WITH DEPENDENCIES
 #
 # Depends on npm i -g semantic-git-commit-cli
 alias gc=sgc
+
+# Depends on pip install jrnl
+alias j="jrnl"
+
+# Depends on klog bin
+alias log="klog track"
 
 # Fedora: npm i libgen-downloader cli
 alias lib="libgen-downloader"
