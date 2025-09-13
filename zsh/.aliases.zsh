@@ -21,6 +21,12 @@ alias ll="ls -la --color=auto"
 function zd () {
     cd $(find * -type d | fzf)
 }
+# open file using fzf
+function zo () {
+  local file
+  file=$(find . -type f 2>/dev/null | fzf) || return
+  xdg-open "$file" >/dev/null 2>&1 &
+}
 
 # Open configs
 alias vconf="nvim ~/.config/nvim/init.lua"
@@ -39,6 +45,7 @@ if [[ "$(uname)" == "Linux" ]]; then
   alias copy="wl-copy"
   alias paste="wl-paste"
   BLOGDIR="~/Archivo/dev/sabhz-web/src/content/blog/"
+  alias clean="sudo ~/.local/bin/fedorable.sh"
 elif [[ "$(uname)" == "Darwin" ]]; then
   alias copy="pbcopy"
   alias paste="pbpaste"
