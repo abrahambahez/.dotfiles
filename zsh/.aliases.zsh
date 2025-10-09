@@ -17,10 +17,12 @@ alias py="python3"
 #
 alias l="ls --color=auto"
 alias ll="ls -la --color=auto"
+
 ## go to dir using fzf
-function zd () {
+function zcd () {
     cd $(find * -type d | fzf)
 }
+
 # open file using fzf
 function zo () {
   local file
@@ -62,6 +64,9 @@ function mdcat(){ mdcat.sh -i "$1" }
 # Depends on npm i -g semantic-git-commit-cli
 alias gc=sgc
 
+# Depends on install https://github.com/abrahambahez/gliik
+alias gliik="~/archivo/dev/gliik/gliik"
+
 # Depends on pip install jrnl
 alias j="jrnl"
 
@@ -80,3 +85,6 @@ alias zn="zk edit --interactive"
 function zt() { zk edit --tag "$1" --interactive}
 alias zd="zk new --group journal --no-input"
 
+# Trani Aliases
+# Depends on https://github.com/abrahambahez/trani
+alias trani="~/trani/trani"

@@ -1,0 +1,32 @@
+name: Common projects
+matches:
+
+  # Related to SIUCAM
+  - trigger: ":sc"
+    replace: "SIUCAM"
+
+  - trigger: ":flc"
+    replace: "FLACSO"
+
+  - trigger: ":fmc"
+    replace: "módulo colaborativo"
+
+  - trigger: ":sbs"
+    replace: "Sergio Barrera\nProduct Manager — Silia"
+
+  - trigger: "asap"
+    replace: "lo más pronto posible"
+
+  - trigger: ":seg"
+    replace: "Hola equipo, espero que estén muy bien,\nDando seguimiento a\nQuedo atento a su respuesta; gracias y saludos"
+
+    # CREAI
+  - trigger: ":cr"
+    replace: "Creai"
+
+  - trigger: ":sl"
+    replace: "Silia"
+
+  - trigger: ":avgs"
+    replace: Asistente virtual General de Seguros
+    force_clipboard: true

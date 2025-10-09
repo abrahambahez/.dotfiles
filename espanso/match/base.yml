@@ -1,41 +1,80 @@
 name: base
 matches:
-  - trigger: "c  "
+  - trigger: ":cc"
     replace: "«$|$»"
+    force_clipboard: true
 
-  - trigger: "ca  "
+  - trigger: ":ca"
     replace: "«"
+    force_clipboard: true
 
-  - trigger: "cc  "
+  - trigger: ":cc"
     replace: "»"
+    force_clipboard: true
 
-  - trigger: "ang  "
+  - trigger: ":ang"
     replace: "<$|$>"
+    force_clipboard: true
 
-  - trigger: "ana  "
+  - trigger: ":ana"
     replace: "<"
+    force_clipboard: true
 
-  - trigger: "anc  "
+  - trigger: ":anc"
     replace: ">"
+    force_clipboard: true
 
-  - trigger: "fle  "
+  - trigger: ":fle"
     replace: "-->"
+    force_clipboard: true
 
-  - trigger: "ffle  "
+  - trigger: ":ffl"
     replace: "=>"
+    force_clipboard: true
 
-  - trigger: "sect "
+  - trigger: ":sect"
     replace: "§ "
+    force_clipboard: true
 
   # Markdown syntax
-  - trigger: "mdcm "
+  - trigger: "mdcm"
     replace: "<!--$|$-->"
+    force_clipboard: true
 
-  - trigger: "mdcd "
+  - trigger: "mdcd"
     replace: "```\n$|$\n```"
+    force_clipboard: true
 
-  - trigger: "mdjs "
+  - trigger: "mdjs"
     replace: "```js\n$|$\n```"
+    force_clipboard: true
+
+  # PERSONAL
+  - trigger: ":mml"
+    replace: "s.abrahambh@gmail.com"
+
+  - trigger: ":wml"
+    replace: "hi@sergio-barrera.com"
+
+  - trigger: ":bmac"
+    replace: "https://buymeacoffee.com/sabhz"
+
+  - trigger: ":lnkd"
+    replace: "https://www.linkedin.com/in/sergio-barrera-1b9110323/?locale=en_US"
+
+  - trigger: ":mweb"
+    replace: "https://sabhz.com/"
+
+  - trigger: ":wweb"
+    replace: "https://sergio-barrera.com"
+
+  - trigger: ":gh"
+    replace: "https://github.com/abrahambahez"
+
+  - trigger: ":orcid"
+    replace: "0009-0002-1457-5203"
+
+  # Common phrases
 
   # Dynamic
   - trigger: "dt "
@@ -70,21 +109,3 @@ matches:
         params:
           format: "%Y%m%d%H%M"
 
-  # PERSONAL
-  - trigger: "mmail"
-    replace: "s.abrahambh@gmail.com"
-
-  - trigger: "bmac"
-    replace: "https://buymeacoffee.com/sabhz"
-
-  - trigger: "mLinkedIn"
-    replace: "https://www.linkedin.com/in/sergio-barrera-1b9110323/?locale=en_US"
-
-  - trigger: "mweb"
-    replace: "https://sabhz.com/"
-
-  - trigger: "mgithub"
-    replace: "https://github.com/abrahambahez"
-
-  - trigger: "morcid"
-    replace: "0009-0002-1457-5203"
