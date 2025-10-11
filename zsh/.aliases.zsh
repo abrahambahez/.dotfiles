@@ -65,7 +65,10 @@ function mdcat(){ mdcat.sh -i "$1" }
 alias gc=sgc
 
 # Depends on install https://github.com/abrahambahez/gliik
-alias gliik="~/archivo/dev/gliik/gliik"
+alias gl="~/archivo/dev/gliik/gliik"
+function glls() {
+  ~/archivo/dev/gliik/gliik list | grep "$1"
+}
 
 # Depends on pip install jrnl
 alias j="jrnl"
