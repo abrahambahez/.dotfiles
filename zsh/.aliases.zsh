@@ -65,10 +65,15 @@ function mdcat(){ mdcat.sh -i "$1" }
 alias gc=sgc
 
 # Depends on install https://github.com/abrahambahez/gliik
-alias gl="~/archivo/dev/gliik/gliik"
+GLIIK_PATH="~/Documentos/dev/gliik/gliik"
+alias gl="$GLIIK_PATH"
 function glls() {
-  ~/archivo/dev/gliik/gliik list | grep "$1"
+  "$GLIIK_PATH" list | grep "$1"
 }
+
+# Trani Aliases
+# Depends on https://github.com/abrahambahez/trani
+alias trani="~/Documentos/dev/trani/trani"
 
 # Depends on pip install jrnl
 alias j="jrnl"
@@ -88,6 +93,3 @@ alias zn="zk edit --interactive"
 function zt() { zk edit --tag "$1" --interactive}
 alias zd="zk new --group journal --no-input"
 
-# Trani Aliases
-# Depends on https://github.com/abrahambahez/trani
-alias trani="~/trani/trani"
