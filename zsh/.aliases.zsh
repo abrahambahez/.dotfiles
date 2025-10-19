@@ -57,6 +57,7 @@ fi
 
 alias blog="cd $BLOGDIR"
 
+alias prj="cd ~/archivo/projects/ && nvim ."
 function mdcat(){ mdcat.sh -i "$1" }
 
 # ALIASES WITH DEPENDENCIES
@@ -73,7 +74,19 @@ function glls() {
 
 # Trani Aliases
 # Depends on https://github.com/abrahambahez/trani
-alias trani="~/Documentos/dev/trani/trani"
+TRANI_PATH="~/Documentos/dev/trani/trani"
+alias trani="$TRANI_PATH"
+# Alias for testing
+function trn() {
+  $TRANI_PATH start "$1" --preserve-audio
+}
+
+function session() {
+  cd ~/archivo/sessions/
+  local file
+  file=$(find . -type f 2>/dev/null | fzf) || return
+  nvim "$file" >/dev/null 2>&1 &
+}
 
 # Depends on pip install jrnl
 alias j="jrnl"

@@ -52,9 +52,11 @@ matches:
   # PERSONAL
   - trigger: ":mml"
     replace: "s.abrahambh@gmail.com"
+    force_clipboard: true
 
   - trigger: ":wml"
     replace: "hi@sergio-barrera.com"
+    force_clipboard: true
 
   - trigger: ":bmac"
     replace: "https://buymeacoffee.com/sabhz"
@@ -73,6 +75,10 @@ matches:
 
   - trigger: ":orcid"
     replace: "0009-0002-1457-5203"
+
+  - trigger: ":sb"
+    replace: "Sergio Barrera"
+    force_clipboard: true
 
   # Common phrases
 
