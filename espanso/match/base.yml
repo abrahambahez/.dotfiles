@@ -91,6 +91,14 @@ matches:
         params:
           format: "%Y-%m-%d"
 
+  - trigger: "dte "
+    replace: "{{today}}"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
   - trigger: "tm "
     replace: "{{now}}"
     vars:

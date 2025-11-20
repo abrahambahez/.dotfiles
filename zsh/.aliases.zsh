@@ -65,13 +65,6 @@ function mdcat(){ mdcat.sh -i "$1" }
 # Depends on npm i -g semantic-git-commit-cli
 alias gc=sgc
 
-# Depends on install https://github.com/abrahambahez/gliik
-GLIIK_PATH="~/Documentos/dev/gliik/gliik"
-alias gl="$GLIIK_PATH"
-function glls() {
-  "$GLIIK_PATH" list | grep "$1"
-}
-
 # Trani Aliases
 # Depends on https://github.com/abrahambahez/trani
 TRANI_PATH="~/Documentos/dev/trani/trani"
