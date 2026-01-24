@@ -37,3 +37,5 @@ fi
 
 # opencode
 export PATH=/home/sabhz/.opencode/bin:$PATH
+
+. "$HOME/.cargo/env"
