@@ -16,5 +16,15 @@ The scripts are manually mantained.
 - Ghostty is my current terminal of choice
 
 
-See also my [post-install scripts](https://github.com/abrahambahez/postinstall).
+## Post-install scripts
+The post-install directory contains scripts to setup a new Linux/MacOs installation, based on my shred preferences.
 
+## General-purpose Scripts
+
+Scripts directory can be symlinked locally to `.local/bin`.
+
+Use the `link-scripts.sh` script to do it. Use `unlink-scripts.sh` to remove the symlinks.
+
+## Other shared files
+
+Also having templates for reusing structures.

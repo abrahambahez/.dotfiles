@@ -1,0 +1,116 @@
+body {
+    /* Backgrounds */
+    --background-primary: var(--color-base-00);
+    --background-primary-alt: var(--color-base-00);
+    --background-secondary: var(--color-base-00);
+    --background-modifier-border: var(--color-base-00);
+    --background-modifier-border-hover: var(--color-base-00);
+    --background-modifier-border-focus: var(--color-base-00);
+    --interactive-hover: var(--color-base-00);
+    --text-highlight-bg: var(--text-selection);
+
+    /* Normalize title bar colors */
+    --tab-container-background: var(--color-base-00);
+    --titlebar-background: var(--color-base-00);
+    --titlebar-background-focused: var(--color-base-00);
+
+    /* Graph adjustements */
+    --graph-line: var(--color-base-40, var(--background-modifier-border-focus));
+
+    /* Font sizes */
+    --header-size: 1.25em;
+    --h1-size: var(--header-size);
+    --h2-size: var(--header-size);
+    --h3-size: var(--header-size);
+    --h4-size: var(--header-size);
+    --h5-size: var(--header-size);
+    --h6-size: var(--header-size);
+
+    /* UI font sizes */
+    --font-ui-smaller: 13px;
+    --font-ui-small: 14px;
+    --font-ui-medium: 16px;
+    --font-ui-large: 22px;
+
+    /* UI font colors */
+    --h1-color: var(--header-color);
+    --h2-color: var(--header-color);
+    --h3-color: var(--header-color);
+    --h4-color: var(--header-color);
+    --h5-color: var(--header-color);
+    --h6-color: var(--header-color);
+
+    /* UI boder fixes */
+
+    --table-border-color: var(--color-base-40);
+}
+
+hr {
+    border-color: var(--table-border-color);
+}
+.graph-view.color-fill {
+    color: var(--color-accent-2);
+}
+
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+    background: -webkit-radial-gradient(
+        var(--color-accent),
+        var(--color-accent-2)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hide Ribbon Sidebar */
+body {
+    --ribbon-width: 0px;
+    --ribbon-padding: 0px;
+}
+
+[aria-label="Bookmark"] {
+    opacity:0;
+    /*display: none !important;*/
+}
+
+.workspace-ribbon {
+    border-right: none !important;
+}
+
+/* Hide top icons */
+.sidebar-toggle-button,
+/* .view-header, -- This shows the nav arrows, bradcrumbs of the note, view mode and file options */
+.workspace-tab-header-tab-list,
+.workspace-tab-header-new-tab {
+    opacity:0;
+    /*display: none !important;*/
+}
+
+/* Adjust workspace-tab-header-container
+.workspace-tab-header-container {
+  padding-right: 1px !important;
+}
+*/
+
+/* Hide status bar */
+.workspace-tab-header-container-inner,/* Comment to return the tab menu*/
+.status-bar {
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.workspace-tab-header-container-inner:hover,/* Comment to return the tab menu*/
+.status-bar:hover {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+/* Hide scrollbar */
+
+::-webkit-scrollbar {
+    width: 0px;
+}

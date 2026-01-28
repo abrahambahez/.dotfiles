@@ -1,0 +1,11 @@
+# Flatpak applications to install
+# One Flatpak ID per line
+# Lines starting with # are comments
+
+it.mijorus.gearlever
+org.zotero.Zotero
+com.spotify.Client
+app.zen_browser.zen
+org.gnome.Extensions
+com.github.ahrm.sioyek
+com.github.johnfactotum.Foliate

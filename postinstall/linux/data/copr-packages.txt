@@ -1,0 +1,8 @@
+# COPR packages to install
+# Format: repo|package
+# repo: COPR repository identifier (user/repo)
+# package: Package name to install
+
+pgdev/ghostty|ghostty
+eclipseo/espanso|espanso
+eclipseo/espanso|espanso-wayland

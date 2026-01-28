@@ -1,0 +1,2 @@
+# Fedora Postinstall notes
+
