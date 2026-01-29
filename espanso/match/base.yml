@@ -63,6 +63,7 @@ matches:
 
   - trigger: ":lnkd"
     replace: "https://www.linkedin.com/in/sergio-barrera-1b9110323/?locale=en_US"
+    force_clipboard: true
 
   - trigger: ":mweb"
     replace: "https://sabhz.com/"
