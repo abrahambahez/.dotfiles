@@ -1,3 +1,5 @@
+alias rm="rm -i"
+
 # Git
 #
 alias gs="git status"
