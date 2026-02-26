@@ -655,6 +655,7 @@ require('lazy').setup({
             },
           },
         },
+        markdown_oxide = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -678,6 +679,7 @@ require('lazy').setup({
         'css-lsp',
         'json-lsp',
         'gopls',
+        'markdown-oxide',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
