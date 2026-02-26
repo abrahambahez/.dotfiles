@@ -45,7 +45,7 @@ alias v="nvim"
 
 if [[ "$(uname)" == "Linux" ]]; then
   alias open="xdg-open"
-  alias icedrive="IcedriveCLI-v3.33"
+  alias icedrive="IcedriveCLI-v3.57"
   alias copy="wl-copy"
   alias paste="wl-paste"
   BLOGDIR="~/Archivo/dev/sabhz-web/src/content/blog/"
@@ -94,10 +94,4 @@ alias lib="libgen-downloader"
 
 # Restart espanso
 alias respanso="espanso stop && espanso start"
-
-# ZK Aliases
-# dependent on `brew install zk`
-alias zn="zk edit --interactive"
-function zt() { zk edit --tag "$1" --interactive}
-alias zd="zk new --group journal --no-input"
 
