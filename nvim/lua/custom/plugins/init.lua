@@ -73,12 +73,13 @@ return {
       },
       picker = { name = 'telescope.nvim' },
       preferred_link_style = 'wiki',
-      note_id_func = function(title)
-        return title or tostring(os.time())
-      end,
-      templates = { folder = 'templates' },
+      -- note_id_func = function(title)
+      --   return title or tostring(os.time())
+      -- end,
+      templates = { folder = nil },
       completion = { nvim_cmp = true, min_chars = 2 },
       legacy_commands = false,
+      frontmatter = { enabled = false },
     },
   },
 }
