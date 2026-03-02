@@ -26,10 +26,16 @@ function zcd () {
 }
 
 # open file using fzf
-function zo () {
+function zof () {
   local file
   file=$(find . -type f 2>/dev/null | fzf) || return
   xdg-open "$file" >/dev/null 2>&1 &
+}
+
+function zv() {
+  local file
+  file=$(find . -type f 2>/dev/null | fzf) || return
+  nvim "$file" >/dev/null 2>&1 &
 }
 
 # Open configs
@@ -66,6 +72,18 @@ function mdcat(){ mdcat.sh -i "$1" }
 #
 # Depends on npm i -g semantic-git-commit-cli
 alias gc=sgc
+
+# Search citekey
+# Depends on bibtool
+bibs() {
+    local bib_file="/home/sabhz/archivo/idearium/librero.bib"
+
+    local selected=$(grep -E "^@" "$bib_file" | \
+        sed -E 's/^@[^{]+\{(.+),/\1/' | \
+        fzf --header "Buscar en $bib_file" --prompt "Bib> " --preview "bibtool -X {1} $bib_file")
+
+    [ -n "$selected" ] && bibtool -X "$selected" "$bib_file"
+}
 
 # Trani Aliases
 # Depends on https://github.com/abrahambahez/trani
