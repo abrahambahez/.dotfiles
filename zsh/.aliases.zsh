@@ -76,7 +76,18 @@ alias gc=sgc
 # Search citekey
 # Depends on bibtool
 bibs() {
-    local bib_file="/home/sabhz/archivo/idearium/librero.bib"
+    local bib_file="$OBSIDIAN_MAIN_VAULT"librero.bib
+
+    local selected=$(grep -E "^@" "$bib_file" | \
+        sed -E 's/^@[^{]+\{(.+),/\1/' | \
+        fzf --header "Buscar en $bib_file" --prompt "Bib> " --preview "bibtool -X {1} $bib_file")
+
+    [ -n "$selected" ] && bibtool -X "$selected" "$bib_file"
+}
+
+
+refs() {
+    local bib_file="$OBSIDIAN_MAIN_VAULT"brrd/inbox/refs.bib
 
     local selected=$(grep -E "^@" "$bib_file" | \
         sed -E 's/^@[^{]+\{(.+),/\1/' | \
