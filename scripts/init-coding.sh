@@ -6,7 +6,44 @@
 
 set -euo pipefail
 
-PROJECT_NAME="${1:-my-project}"
+usage() {
+  echo "usage: init-coding <project-name> [project-dir]"
+  echo "       init-coding --reset [project-dir]"
+  echo "       init-coding bibref ~/projects/bibref"
+  echo ""
+  echo "scaffolds an RPI-SDD agent-first project structure"
+  echo ""
+  echo "options:"
+  echo "  --reset [dir]  remove all files and dirs created by this script"
+}
+
+reset_scaffold() {
+  local dir="${1:-.}"
+  echo "resetting scaffold in $dir"
+  rm -rf \
+    "$dir/docs" \
+    "$dir/specs" \
+    "$dir/evals" \
+    "$dir/.claude" \
+    "$dir/CLAUDE.md" \
+    "$dir/feature_list.json" \
+    "$dir/claude-progress.txt" \
+    "$dir/init.sh" \
+    "$dir/.gitignore"
+  echo "reset complete"
+}
+
+if [[ $# -eq 0 || "${1:-}" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+if [[ "${1:-}" == "--reset" ]]; then
+  reset_scaffold "${2:-}"
+  exit 0
+fi
+
+PROJECT_NAME="$1"
 PROJECT_DIR="${2:-.}"
 
 echo "scaffolding $PROJECT_NAME in $PROJECT_DIR"
