@@ -59,8 +59,7 @@ return {
       end,
     },
   },
-  -- 'junegunn/goyo.vim',
-
+  -- Obdidian Nvim
   {
     'obsidian-nvim/obsidian.nvim',
     version = '*',
