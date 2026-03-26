@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* 
+ * Enlightened Rebel CSS Theme
+ * A Brutalist Scholastic Aesthetic for Pandoc & Web
+ */
+
+@property --oxblood {
+  syntax: '<color>';
+  initial-value: #610000;
+  inherits: true;
+}
+
+@property --parchment {
+  syntax: '<color>';
+  initial-value: #FCF9F0;
+  inherits: true;
+}
+
+:root {
+  /* Colors */
+  --c-oxblood: #610000;
+  --c-oxblood-bright: #8B0000;
+  --c-parchment: #FCF9F0;
+  --c-ink: #000000;
+  --c-paper-dark: #F1EEE5;
+  
+  /* Typography Scale (Fluid) */
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  --fs-base: clamp(1rem, 0.95rem + 0.4vw, 1.125rem);
+  --fs-md: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  --fs-lg: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  --fs-xl: clamp(3rem, 2rem + 5vw, 8rem);
+
+  /* Spacing */
+  --space-unit: clamp(1rem, 0.8rem + 1vw, 2rem);
+  --border-thick: 3px;
+  --border-thin: 1.5px;
+
+  /* Fonts */
+  --font-serif: "Newsreader", serif;
+  --font-mono: "Space Grotesk", "JetBrains Mono", monospace;
+}
+
+/* --- Base Elements --- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: var(--c-parchment);
+  color: var(--c-ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  padding: var(--space-unit);
+  max-width: 1200px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Typography --- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 0.9;
+  margin-block: 1.5em 0.5em;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--fs-xl); border-bottom: var(--border-thick) solid var(--c-ink); padding-bottom: 0.2em; }
+h2 { font-size: var(--fs-lg); font-style: italic; }
+h3 { font-size: var(--fs-md); text-transform: uppercase; font-family: var(--font-mono); font-weight: 800; }
+
+p {
+  margin-block-end: 1.2em;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--c-oxblood);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color 0.1s;
+}
+
+a:hover {
+  background-color: var(--c-ink);
+  color: var(--c-parchment);
+  text-decoration: none;
+}
+
+/* --- Pandoc / Markdown Specifics --- */
+
+blockquote {
+  border: var(--border-thick) solid var(--c-ink);
+  background-color: var(--c-paper-dark);
+  padding: var(--space-unit);
+  margin-block: 2em;
+  position: relative;
+}
+
+blockquote::before {
+  content: "EXCERPT";
+  position: absolute;
+  top: calc(var(--border-thick) * -1 - 0.7em);
+  left: 1rem;
+  background: var(--c-ink);
+  color: var(--c-parchment);
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  font-weight: 900;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace;
+  background-color: rgba(0,0,0,0.05);
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  border: 1px solid var(--c-ink);
+}
+
+pre {
+  background-color: var(--c-ink);
+  color: var(--c-parchment);
+  padding: var(--space-unit);
+  overflow-x: auto;
+  border: var(--border-thick) solid var(--c-oxblood);
+  margin-block: 2em;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 2em;
+  border: var(--border-thick) solid var(--c-ink);
+}
+
+th, td {
+  border: var(--border-thin) solid var(--c-ink);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--c-paper-dark);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: var(--fs-xs);
+}
+
+hr {
+  border: none;
+  border-top: var(--border-thick) solid var(--c-ink);
+  margin-block: 3em;
+}
+
+/* --- Custom Classes for Pandoc Containers --- */
+
+.brutalist-card {
+  border: var(--border-thick) solid var(--c-ink);
+  padding: var(--space-unit);
+  background: var(--c-parchment);
+}
+
+.oxblood-callout {
+  background-color: var(--c-oxblood);
+  color: var(--c-parchment);
+  border: var(--border-thick) solid var(--c-ink);
+  padding: var(--space-unit);
+}
+
+.oxblood-callout h1, 
+.oxblood-callout h2, 
+.oxblood-callout h3 {
+  color: white;
+  border-color: white;
+}
+
+.side-note {
+  font-size: var(--fs-sm);
+  border-left: var(--border-thick) solid var(--c-oxblood);
+  padding-left: 1.5rem;
+  margin-left: 2rem;
+  opacity: 0.8;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+  border: var(--border-thin) solid var(--c-ink);
+}
+
+.columns > * {
+  border: var(--border-thin) solid var(--c-ink);
+  padding: var(--space-unit);
+}
+
+/* --- Buttons (for interactive docs) --- */
+
+button, .btn {
+  display: inline-block;
+  background: var(--c-ink);
+  color: var(--c-parchment);
+  border: var(--border-thick) solid var(--c-ink);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: none;
+}
+
+button:hover, .btn:hover {
+  background: var(--c-oxblood);
+  color: white;
+}
+
+button:active, .btn:active {
+  transform: translate(2px, 2px);
+}
