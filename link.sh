@@ -14,6 +14,7 @@ CONFIG_DIRS=(
   nvim
   rofi
   uv
+  todotxt
 )
 
 echo "🔗 Linking config directories to $CONFIG_TARGET..."

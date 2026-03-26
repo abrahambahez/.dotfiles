@@ -81,4 +81,5 @@ return {
       frontmatter = { enabled = false },
     },
   },
+  { 'freitass/todo.txt-vim' },
 }

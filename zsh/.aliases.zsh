@@ -118,8 +118,8 @@ alias j="jrnl"
 # Depends on klog bin
 alias log="klog track"
 
-# Fedora: npm i libgen-downloader cli
-alias lib="libgen-downloader"
+# Depends on todo.sh
+alias t="todo.sh -d ~/.config/todotxt/todo.cfg"
 
 # Restart espanso
 alias respanso="espanso stop && espanso start"
