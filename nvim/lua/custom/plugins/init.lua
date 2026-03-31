@@ -68,7 +68,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       workspaces = {
-        { name = 'idearium', path = '~/archivo/idearium' },
+        { name = 'notas', path = '~/archivo/notas' },
       },
       picker = { name = 'telescope.nvim' },
       preferred_link_style = 'wiki',

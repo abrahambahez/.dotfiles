@@ -405,8 +405,8 @@ require('lazy').setup({
           bibtex = {
             depth = 1,
             global_files = {
-              '/home/sabhz/Archivo/idearium/notas/librero.bib',
-              '~/Archivo/idearium/librero.bib',
+              '~/archivo/library/library.bib',
+              '~/archivo/idearium/librero.bib',
             },
             search_keys = { 'author', 'year', 'title', 'citekey' },
           },
