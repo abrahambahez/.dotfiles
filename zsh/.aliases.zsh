@@ -121,7 +121,7 @@ alias log="klog track"
 # Depends on todo.sh
 alias t="todo.sh -d ~/.config/todotxt/todo.cfg"
 # Depends on pter cli todo.txt
-alias td="pter /home/sabhz/archivo/idearium/brrd/todo.txt"
+alias td="pter /home/sabhz/archivo/readme/todo/todo.txt"
 
 # Restart espanso
 alias respanso="espanso stop && espanso start"
