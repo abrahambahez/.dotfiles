@@ -405,8 +405,7 @@ require('lazy').setup({
           bibtex = {
             depth = 1,
             global_files = {
-              '~/archivo/library/library.bib',
-              '~/archivo/idearium/librero.bib',
+              '~/Biblioteca/library.bib',
             },
             search_keys = { 'author', 'year', 'title', 'citekey' },
           },
@@ -574,7 +573,7 @@ require('lazy').setup({
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -871,10 +870,19 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.o.background is auto-detected via OSC 11 from the terminal (Ghostty).
+      -- The OptionSet autocmd re-applies when the background changes at runtime.
+      local function apply_colorscheme()
+        local scheme = vim.o.background == 'light' and 'tokyonight-day' or 'tokyonight-night'
+        vim.cmd.colorscheme(scheme)
+        -- You can configure highlights by doing something like:
+        vim.cmd.hi 'Comment gui=none'
+      end
+      apply_colorscheme()
+      vim.api.nvim_create_autocmd('OptionSet', {
+        pattern = 'background',
+        callback = apply_colorscheme,
+      })
     end,
     opts = { transparent = true },
   },
@@ -921,11 +929,10 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = {
+    config = function()
+      require('nvim-treesitter').install {
         'bash',
         'c',
         'diff',
@@ -945,24 +952,18 @@ require('lazy').setup({
         'css',
         'json',
         'go',
-      },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      }
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(ev)
+          pcall(vim.treesitter.start)
+          -- Ruby depends on vim's regex indent system; leave it alone.
+          if vim.bo[ev.buf].filetype ~= 'ruby' then
+            vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
