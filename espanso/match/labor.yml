@@ -1,7 +1,6 @@
 name: Common projects
 matches:
 
-  # Related to SIUCAM
   - trigger: ":sc"
     replace: "SIUCAM"
 
@@ -11,16 +10,21 @@ matches:
   - trigger: ":fmc"
     replace: "módulo colaborativo"
 
+  # force_clipboard: multilínea
   - trigger: ":sbs"
     replace: "Sergio Barrera\nProduct Manager — Silia"
+    force_clipboard: true
 
+  # word: true evita expansión accidental dentro de otras palabras
   - trigger: "asap"
     replace: "lo más pronto posible"
+    word: true
 
+  # force_clipboard: multilínea
   - trigger: ":seg"
     replace: "Hola equipo, espero que estén muy bien,\nDando seguimiento a\nQuedo atento a su respuesta; gracias y saludos"
+    force_clipboard: true
 
-    # CREAI
   - trigger: ":cr"
     replace: "Creai"
 
@@ -28,5 +32,5 @@ matches:
     replace: "Silia"
 
   - trigger: ":avgs"
-    replace: Asistente virtual General de Seguros
+    replace: "Asistente virtual General de Seguros"
     force_clipboard: true

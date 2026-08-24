@@ -3,11 +3,13 @@ matches:
   - trigger: "ipy  "
     replace: "__init__.py"
 
-  - trigger: "pyreq u"
+  - trigger: "pyreq "
     replace: "pip3 freeze | grep $|$ >> requirements.txt"
 
   - trigger: "pydoc"
     replace: "\"\"\"$|$\n\"\"\""
+    word: true
 
   - trigger: "pym"
     replace: "py -m"
+    word: true

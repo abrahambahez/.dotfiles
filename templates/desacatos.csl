@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>Desacatos. Revista de Ciencias Sociales</title>
+    <id>desacatos-ciesas</id>
+    <author>
+      <name>Sergio Abraham Barrera Hernández</name>
+    </author>
+    <category citation-format="author-date"/>
+    <category field="social_science"/>
+    <summary>Estilo de citas para Desacatos (CIESAS). Basado en Harvard Cite Them Right 12th ed.</summary>
+    <updated>2026-06-19T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <locale xml:lang="es">
+    <terms>
+      <term name="and">y</term>
+      <term name="et-al">et al.</term>
+      <term name="editor" form="short">
+        <single>ed.</single>
+        <multiple>eds.</multiple>
+      </term>
+      <term name="compiler" form="short">
+        <single>comp.</single>
+        <multiple>comps.</multiple>
+      </term>
+      <term name="translator" form="short">
+        <single>trad.</single>
+        <multiple>trads.</multiple>
+      </term>
+      <term name="available at">Disponible en línea</term>
+      <term name="accessed">Consultado</term>
+      <term name="no date">s.f.</term>
+    </terms>
+  </locale>
+
+  <!-- Autor para bibliografía: Apellido, Nombre (solo primer autor en ese orden) -->
+  <macro name="author">
+    <names variable="author">
+      <name and="text" delimiter=", " delimiter-precedes-last="never"
+            initialize="false" name-as-sort-order="first"/>
+      <label form="short" prefix=" (" suffix=")"/>
+      <et-al font-style="italic"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="article-newspaper article-magazine article-journal" match="any">
+            <text variable="container-title" font-style="italic"/>
+          </if>
+          <else>
+            <text macro="title"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Autor corto para citas en texto: solo apellidos -->
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " delimiter-precedes-last="never"/>
+      <et-al font-style="italic"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="article-newspaper article-magazine article-journal" match="any">
+            <text variable="container-title" font-style="italic"/>
+          </if>
+          <else>
+            <text macro="title"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Editor para capítulos: orden directo (Nombre Apellido) -->
+  <macro name="editor">
+    <choose>
+      <if type="chapter paper-conference" match="any">
+        <names variable="editor">
+          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Colaboradores secundarios para libros con autor Y editor (traducciones, etc.) -->
+  <macro name="secondary-contributors">
+    <choose>
+      <if type="chapter paper-conference" match="none">
+        <names variable="editor translator" delimiter=", ">
+          <label form="short" text-case="capitalize-first" suffix=" "/>
+          <name and="text" delimiter=", " delimiter-precedes-last="never" initialize="false"/>
+        </names>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Año sin paréntesis -->
+  <macro name="year-date">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+        <text variable="year-suffix"/>
+      </if>
+      <else>
+        <text term="no date"/>
+        <text variable="year-suffix" prefix=" "/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Título: cursiva para libros/tesis, entrecomillado para artículos/capítulos -->
+  <macro name="title">
+    <choose>
+      <if type="bill book legal_case legislation motion_picture report song thesis webpage graphic" match="any">
+        <text variable="title" font-style="italic"/>
+      </if>
+      <else>
+        <text variable="title" quotes="true"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Título del contenedor (revista o libro colectivo): siempre en cursiva -->
+  <macro name="container-title">
+    <choose>
+      <if variable="container-title">
+        <text variable="container-title" font-style="italic"/>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Editorial y lugar en orden Desacatos: Editorial, Ciudad -->
+  <macro name="publisher">
+    <choose>
+      <if type="thesis">
+        <group delimiter=", ">
+          <text variable="genre"/>
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+        </group>
+      </if>
+      <else-if type="article-journal article-newspaper article-magazine" match="none">
+        <group delimiter=", ">
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- Volumen e issue para revistas: vol. X, núm. X -->
+  <macro name="locator">
+    <choose>
+      <if type="article-journal">
+        <group delimiter=", ">
+          <text variable="volume" prefix="vol. "/>
+          <text variable="issue" prefix="núm. "/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Fecha completa (día y mes) para hemerografía y posts -->
+  <macro name="published-date">
+    <choose>
+      <if type="article-newspaper article-magazine post-weblog speech" match="any">
+        <date variable="issued">
+          <date-part name="day" suffix=" de "/>
+          <date-part name="month" form="long"/>
+        </date>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Páginas con prefijo pp. -->
+  <macro name="pages">
+    <choose>
+      <if type="chapter paper-conference article-journal article article-magazine article-newspaper review review-book" match="any">
+        <text variable="page" prefix="pp. "/>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Acceso en línea en español con URL entre ángulos -->
+  <macro name="access">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="https://doi.org/"/>
+      </if>
+      <else-if variable="URL">
+        <group delimiter=": ">
+          <text term="available at"/>
+          <text variable="URL" prefix="&lt;" suffix="&gt;"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- ============================================================
+       CITA EN TEXTO: (Autor, año: página)
+       ============================================================ -->
+  <citation et-al-min="4" et-al-use-first="1"
+            disambiguate-add-year-suffix="true"
+            disambiguate-add-names="true"
+            disambiguate-add-givenname="true"
+            collapse="year">
+    <sort>
+      <key macro="year-date"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group>
+        <group delimiter=", ">
+          <text macro="author-short"/>
+          <text macro="year-date"/>
+        </group>
+        <text variable="locator" prefix=": "/>
+      </group>
+    </layout>
+  </citation>
+
+  <!-- ============================================================
+       BIBLIOGRAFÍA: Apellido, Nombre, año, «Título», en Revista...
+       ============================================================ -->
+  <bibliography and="text" et-al-min="10" et-al-use-first="3">
+    <sort>
+      <key macro="author"/>
+      <key macro="year-date"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <group delimiter=", ">
+        <text macro="author"/>
+        <text macro="year-date"/>
+        <text macro="title"/>
+        <choose>
+          <if type="chapter paper-conference" match="any">
+            <group delimiter=", ">
+              <group delimiter=" ">
+                <text value="en"/>
+                <text macro="editor"/>
+              </group>
+              <text macro="container-title"/>
+            </group>
+          </if>
+          <else-if type="article-journal article-newspaper article-magazine post-weblog" match="any">
+            <group delimiter=" ">
+              <text value="en"/>
+              <text macro="container-title"/>
+            </group>
+          </else-if>
+        </choose>
+        <text macro="secondary-contributors"/>
+        <text macro="publisher"/>
+        <text macro="locator"/>
+        <text macro="published-date"/>
+        <text macro="pages"/>
+      </group>
+      <text macro="access" prefix=". "/>
+    </layout>
+  </bibliography>
+</style>

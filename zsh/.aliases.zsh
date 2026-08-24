@@ -26,7 +26,7 @@ function zcd () {
 }
 
 # open file using fzf
-function zof () {
+function zf () {
   local file
   file=$(find . -type f 2>/dev/null | fzf) || return
   xdg-open "$file" >/dev/null 2>&1 &
@@ -63,9 +63,6 @@ elif [[ "$(uname)" == "Darwin" ]]; then
   alias icl="cd /Users/sabhz/Library/Mobile\ Documents/com~apple~CloudDocs" # macos only
 fi
 
-alias blog="cd $BLOGDIR"
-
-alias prj="cd ~/archivo/projects/ && nvim ."
 function mdcat(){ mdcat.sh -i "$1" }
 
 # ALIASES WITH DEPENDENCIES
@@ -76,7 +73,7 @@ alias gc=sgc
 # Search citekey
 # Depends on bibtool
 bibs() {
-    local bib_file="$OBSIDIAN_MAIN_VAULT"librero.bib
+    local bib_file=~/Biblioteca/library.bib
 
     local selected=$(grep -E "^@" "$bib_file" | \
         sed -E 's/^@[^{]+\{(.+),/\1/' | \
@@ -86,7 +83,7 @@ bibs() {
 }
 
 
-refs() {
+bibs_inbox() {
     local bib_file="$OBSIDIAN_MAIN_VAULT"brrd/inbox/refs.bib
 
     local selected=$(grep -E "^@" "$bib_file" | \
@@ -98,30 +95,19 @@ refs() {
 
 # Trani Aliases
 # Depends on https://github.com/abrahambahez/trani
-TRANI_PATH="~/Documentos/dev/trani/trani"
+TRANI_PATH="/home/sabhz/dev/trani/trani"
 alias trani="$TRANI_PATH"
-# Alias for testing
-function trn() {
-  $TRANI_PATH start "$1" --preserve-audio
-}
-
-function session() {
-  cd ~/archivo/sessions/
-  local file
-  file=$(find . -type f 2>/dev/null | fzf) || return
-  nvim "$file" >/dev/null 2>&1 &
-}
 
 # Depends on pip install jrnl
-alias j="jrnl"
+#alias j="jrnl"
 
 # Depends on klog bin
-alias log="klog track"
+#alias log="klog track"
 
 # Depends on todo.sh
-alias t="todo.sh -d ~/.config/todotxt/todo.cfg"
+#alias t="todo.sh -d ~/.config/todotxt/todo.cfg"
 # Depends on pter cli todo.txt
-alias td="pter /home/sabhz/archivo/readme/todo/todo.txt"
+#alias td="pter /home/sabhz/archivo/readme/todo/todo.txt"
 
 # Restart espanso
 alias respanso="espanso stop && espanso start"

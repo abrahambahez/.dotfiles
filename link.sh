@@ -39,5 +39,16 @@ find zsh -maxdepth 1 -type f | while read -r filepath; do
   ln -s "$src" "$dest"
 done
 
+echo "🔗 Linking xcompose files to $HOME_TARGET..."
+find xcompose -maxdepth 1 -type f | while read -r filepath; do
+  filename="$(basename "$filepath")"
+  src="$(pwd)/$filepath"
+  dest="$HOME_TARGET/$filename"
+
+  echo " • $src → $dest"
+  rm -f "$dest"
+  ln -s "$src" "$dest"
+done
+
 echo "✅ All symlinks created successfully."
 
