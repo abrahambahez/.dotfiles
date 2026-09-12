@@ -10,14 +10,17 @@ The scripts are manually mantained.
 
 - ZSH uses
     - [Antidote](https://antidote.sh/)
-    - [oh-my-zsh](https://ohmyz.sh/)
+    - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - Neovim uses
     - [Kickstart Neovim](https://github.com/nvim-lua/kickstart.nvim/tree/master)
 - Ghostty is my current terminal of choice
 
 
 ## Post-install scripts
-The post-install directory contains scripts to setup a new Linux/MacOs installation, based on my shred preferences.
+The post-install directory contains scripts to setup a new installation, based on my shred preferences:
+- `linux/`: Fedora (DNF/COPR/GNOME)
+- `macos/`: macOS (Homebrew)
+- `omarchy/`: Omarchy/Arch Linux (pacman/AUR/Hyprland)
 
 ## General-purpose Scripts
 
