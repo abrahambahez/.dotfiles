@@ -112,3 +112,5 @@ alias trani="$TRANI_PATH"
 # Restart espanso
 alias respanso="espanso stop && espanso start"
 
+#Test a Claude Code Plugin for Creai
+alias claude-solutions='claude --plugin-dir /home/sabhz/Documentos/Historia/2026/cai/projects/solutions-agent'
