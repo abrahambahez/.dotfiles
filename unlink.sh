@@ -13,7 +13,6 @@ CONFIG_DIRS=(
   kitty
   nvim
   rofi
-  uv
 )
 
 echo "🗑️ Unlinking config directories from $CONFIG_TARGET..."
