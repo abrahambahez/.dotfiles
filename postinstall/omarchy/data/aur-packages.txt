@@ -1,0 +1,11 @@
+# AUR packages to install
+# One AUR package name per line
+# Lines starting with # are comments
+# Requires an AUR helper (yay or paru) already installed
+
+espanso-wayland-bin
+gearlever-bin
+zotero-bin
+spotify
+zen-browser-bin
+sioyek-dev

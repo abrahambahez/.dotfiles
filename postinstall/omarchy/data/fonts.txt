@@ -1,0 +1,10 @@
+# Fonts to install
+# Format: name|type|url
+# name: Font name (used as directory name)
+# type: zip, ttf, or otf
+# url: Direct download URL
+
+Hack|zip|https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Hack.zip
+Inter|zip|https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip
+iAWriterDuo|ttf|https://github.com/iaolo/iA-Fonts/raw/master/iA%20Writer%20Duo/Variable/iAWriterDuoV.ttf
+iAWriterDuo|ttf|https://github.com/iaolo/iA-Fonts/raw/master/iA%20Writer%20Duo/Variable/iAWriterDuoV-Italic.ttf
