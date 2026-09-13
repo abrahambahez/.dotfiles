@@ -114,3 +114,9 @@ alias respanso="espanso stop && espanso start"
 
 #Test a Claude Code Plugin for Creai
 alias claude-solutions='claude --plugin-dir /home/sabhz/Documentos/Historia/2026/cai/projects/solutions-agent'
+
+# Claude Code with the work account (login interactivo separado de la cuenta personal)
+# La primera vez, corré `claude-work` y hacé /login dentro con la cuenta de la empresa.
+function claude-work() {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-work" claude "$@"
+}

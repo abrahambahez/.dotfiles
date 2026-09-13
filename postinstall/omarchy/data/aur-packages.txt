@@ -4,7 +4,7 @@
 # Requires an AUR helper (yay or paru) already installed
 
 espanso-wayland-bin
-gearlever-bin
+gearlever
 zotero-bin
 spotify
 zen-browser-bin

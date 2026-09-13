@@ -3,11 +3,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# source antidote
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-
-# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-antidote load
+# source antidote (only if installed; Omarchy postinstall clones it via install_antidote)
+if [[ -f ${ZDOTDIR:-~}/.antidote/antidote.zsh ]]; then
+  source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+  # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+  antidote load
+fi
 
 # Move antidote cache
 export ANTIDOTE_HOME=~/.cache/antidote
@@ -30,7 +31,8 @@ source ~/.aliases.zsh
 source ~/.profile
 # . "$HOME/.local/bin/env"
 
-if [[ "$(uname)" == "Linux" ]]; then
+# Homebrew is only installed on some Linux setups (not Omarchy, by design)
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -39,3 +41,5 @@ fi
 # export PATH=/home/sabhz/.opencode/bin:$PATH
 #
 # . "$HOME/.cargo/env"
+
+. "$HOME/.local/share/../bin/env"

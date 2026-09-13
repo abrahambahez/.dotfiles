@@ -35,6 +35,20 @@ setup_zsh() {
     fi
 }
 
+install_antidote() {
+    log_info "Installing antidote zsh plugin manager"
+
+    local antidote_dir="${ZDOTDIR:-$HOME}/.antidote"
+
+    if [[ -f "$antidote_dir/antidote.zsh" ]]; then
+        log_info "antidote already installed, skipping"
+        return 0
+    fi
+
+    run_command "Clone antidote" \
+        git clone --depth=1 https://github.com/mattmc3/antidote.git "$antidote_dir"
+}
+
 install_uv_python() {
     log_info "Installing UV Python manager"
 

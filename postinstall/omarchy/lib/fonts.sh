@@ -41,6 +41,10 @@ install_fonts() {
                 ;;
         esac
     done <<< "$entries"
+
+    if command -v fc-cache &>/dev/null; then
+        run_command "Refresh font cache" fc-cache -f "$HOME/.local/share/fonts"
+    fi
 }
 
 install_font_from_zip() {

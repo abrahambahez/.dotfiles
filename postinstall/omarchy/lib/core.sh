@@ -23,7 +23,12 @@ run_command() {
     shift
     log_info "Starting: $description"
 
-    if "$@" >> "$LOGFILE" 2>&1; then
+    # Tee (not redirect) stdout/stderr: some commands (sudo, yay, omarchy
+    # update) prompt for a password mid-run, and a blind redirect hides that
+    # prompt from the terminal while still waiting on stdin for an answer,
+    # which looks like a hang. Teeing keeps prompts visible while still
+    # logging everything.
+    if "$@" > >(tee -a "$LOGFILE") 2> >(tee -a "$LOGFILE" >&2); then
         log_success "$description"
         return 0
     else

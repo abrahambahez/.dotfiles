@@ -12,7 +12,7 @@ omarchy/
 │   ├── pacman.sh                # Pacman package management
 │   ├── aur.sh                    # AUR package management (via yay/paru)
 │   ├── fonts.sh                  # Font installation
-│   └── extras.sh                 # Additional tools (zsh, UV)
+│   └── extras.sh                 # Additional tools (zsh, antidote, UV)
 ├── data/                        # Declarative package lists
 │   ├── pacman-packages.txt      # Official repo packages (one per line)
 │   ├── aur-packages.txt          # AUR package names (one per line)

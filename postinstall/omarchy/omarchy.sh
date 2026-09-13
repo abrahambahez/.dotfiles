@@ -47,6 +47,7 @@ fi
 
 if [[ "$SKIP_ZSH_SETUP" != "true" ]]; then
     setup_zsh
+    install_antidote
 else
     log_info "Skipping zsh setup (SKIP_ZSH_SETUP=true)"
 fi

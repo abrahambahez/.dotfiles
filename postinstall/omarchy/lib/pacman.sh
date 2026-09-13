@@ -26,7 +26,11 @@ setup_pacman_config() {
 }
 
 update_system() {
-    run_command "System update (pacman -Syu)" sudo pacman -Syu --noconfirm
+    if command -v omarchy &>/dev/null; then
+        run_command "System update (omarchy update -y)" omarchy update -y
+    else
+        run_command "System update (pacman -Syu)" sudo pacman -Syu --noconfirm
+    fi
 }
 
 install_pacman_packages() {
