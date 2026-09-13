@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Symlinks every file under the dotfiles obsidian/ directory into the
+# target directory, mirroring its relative path (e.g. .obsidian.vimrc
+# stays at the root, .obsidian/snippets/foo.css lands under
+# .obsidian/snippets/). Run it from the root of an Obsidian vault, or
+# pass the vault path as an argument.
+#
+# Usage: obsconf [vault_dir]
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+DOTFILES_DIR="$(cd "$(dirname "$SCRIPT_PATH")/.." && pwd)"
+SRC_DIR="$DOTFILES_DIR/obsidian"
+
+TARGET_DIR="${1:-$(pwd)}"
+
+if [[ ! -d "$SRC_DIR" ]]; then
+  echo "ERROR: $SRC_DIR not found." >&2
+  exit 1
+fi
+
+if [[ ! -d "$TARGET_DIR" ]]; then
+  echo "ERROR: $TARGET_DIR is not a directory." >&2
+  exit 1
+fi
+
+while IFS= read -r -d '' file; do
+  rel_path="${file#"$SRC_DIR"/}"
+  dest="$TARGET_DIR/$rel_path"
+
+  if [[ -e "$dest" && ! -L "$dest" ]]; then
+    echo "⚠️  $dest already exists and is not a symlink. Skipping." >&2
+    continue
+  fi
+
+  mkdir -p "$(dirname "$dest")"
+  ln -sf "$file" "$dest"
+  echo "🔗 $dest → $file"
+done < <(find "$SRC_DIR" -type f -print0)

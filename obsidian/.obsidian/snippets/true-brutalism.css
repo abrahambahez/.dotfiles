@@ -1,0 +1,182 @@
+body {
+    /* Backgrounds */
+    --background-primary: var(--color-base-00);
+    --background-primary-alt: var(--color-base-00);
+    --background-secondary: var(--color-base-00);
+    --background-modifier-border: var(--color-base-00);
+    --background-modifier-border-hover: var(--color-base-00);
+    --background-modifier-border-focus: var(--color-base-00);
+    --interactive-hover: var(--color-base-00);
+    --text-highlight-bg: var(--text-selection);
+
+    /* Normalize title bar colors */
+    --tab-container-background: var(--color-base-00);
+    --titlebar-background: var(--color-base-00);
+    --titlebar-background-focused: var(--color-base-00);
+
+    /* Graph adjustements */
+    --graph-line: var(--color-base-40, var(--background-modifier-border-focus));
+
+    /* Font sizes */
+    --header-size: 1.25em;
+    --h1-size: var(--header-size);
+    --h2-size: var(--header-size);
+    --h3-size: var(--header-size);
+    --h4-size: var(--header-size);
+    --h5-size: var(--header-size);
+    --h6-size: var(--header-size);
+
+    /* Font weights */
+    --header-weight: 600;
+    --h1-weight: var(--header-weight);
+    --h2-weight: var(--header-weight);
+    --h3-weight: var(--header-weight);
+    --h4-weight: var(--header-weight);
+    --h5-weight: var(--header-weight);
+    --h6-weight: var(--header-weight);
+
+    /* UI font sizes */
+    --font-ui-smaller: 13px;
+    --font-ui-small: 14px;
+    --font-ui-medium: 16px;
+    --font-ui-large: 22px;
+
+    /* UI font colors */
+    --header-accent-color: hsl(var(--accent-h), calc(var(--accent-s) * 1.1), calc(var(--accent-l) * 1.15));
+    --h1-color: var(--header-accent-color);
+    --h2-color: var(--text-normal);
+    --h3-color: color-mix(in srgb, var(--text-normal) 70%, var(--background-primary));
+    --h4-color: color-mix(in srgb, var(--text-normal) 55%, var(--background-primary));
+    --h5-color: color-mix(in srgb, var(--text-normal) 45%, var(--background-primary));
+    --h6-color: color-mix(in srgb, var(--text-normal) 40%, var(--background-primary));
+
+    /* UI boder fixes */
+
+    --table-border-color: var(--color-base-40);
+}
+
+hr {
+    border-color: var(--table-border-color);
+}
+
+.graph-view.color-fill {
+    color: var(--color-accent-2);
+}
+
+.cm-header-1 {
+    color: var(--header-accent-color);
+}
+
+.cm-header-2 {
+    color: var(--h2-color);
+}
+
+.cm-header-3 {
+    color: var(--h3-color);
+}
+
+.cm-header-4 {
+    color: var(--h4-color);
+}
+
+.cm-header-5 {
+    color: var(--h5-color);
+}
+
+.cm-header-6 {
+    color: var(--h6-color);
+}
+
+/* Hide Ribbon Sidebar */
+body {
+    --ribbon-width: 0px;
+    --ribbon-padding: 0px;
+}
+
+[aria-label="Bookmark"] {
+    opacity: 0.3;
+    transition: opacity 0.25s;
+}
+
+[aria-label="Bookmark"]:hover {
+    opacity: 1;
+}
+
+.workspace-ribbon {
+    border-right: none !important;
+}
+
+/* Dim view-header actions: more options menu + reading/editing mode toggle */
+.view-actions [aria-label="More options"],
+.view-actions [aria-label*="Current view"] {
+    opacity: 0.3;
+    transition: opacity 0.25s;
+}
+
+.view-actions [aria-label="More options"]:hover,
+.view-actions [aria-label*="Current view"]:hover {
+    opacity: 1;
+}
+
+/* Dim top icons */
+.sidebar-toggle-button,
+/* .view-header, -- This shows the nav arrows, bradcrumbs of the note, view mode and file options */
+.workspace-tab-header-tab-list,
+.workspace-tab-header-new-tab {
+    opacity: 0.3;
+    transition: opacity 0.25s;
+}
+
+.sidebar-toggle-button:hover,
+.workspace-tab-header-tab-list:hover,
+.workspace-tab-header-new-tab:hover {
+    opacity: 1;
+}
+
+/* Adjust workspace-tab-header-container
+.workspace-tab-header-container {
+  padding-right: 1px !important;
+}
+*/
+
+/* Dim tab menu */
+.workspace-tab-header-container-inner {
+    opacity: 0.3;
+    transition: opacity 0.25s;
+}
+
+.workspace-tab-header-container-inner:hover {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+/* Hide status bar */
+.status-bar {
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.status-bar:hover {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+/* Hide scrollbar */
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Hide native window controls (hidden frame style) */
+.is-hidden-frameless.mod-linux .titlebar-button-container {
+  display: none;
+}
+
+/* :not(.mod-macos) matches Obsidian's specificity, otherwise this loses the cascade tie */
+.is-hidden-frameless:not(.is-fullscreen):not(.mod-macos) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+  content: none;
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  padding-right: .5em;
+}

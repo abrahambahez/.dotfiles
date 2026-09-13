@@ -32,8 +32,8 @@ echo "Linking scripts from $SOURCE_DIR to $TARGET_DIR..."
 # Disable -e for the main processing loop
 set +e
 
-# Process each script file
-for script in "$SOURCE_DIR"/*.sh; do
+# Process each script file (plus extensionless scripts like obsconf)
+for script in "$SOURCE_DIR"/*.sh "$SOURCE_DIR"/obsconf; do
     # Skip if no .sh files exist
     [[ -e "$script" ]] || continue
     

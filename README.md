@@ -31,3 +31,5 @@ Use the `link-scripts.sh` script to do it. Use `unlink-scripts.sh` to remove the
 ## Other shared files
 
 Also having templates for reusing structures.
+
+- `obsidian/`: Obsidian config files that Obsidian Sync doesn't sync (dotfiles, CSS snippets), backed up here mirroring their path relative to a vault root (e.g. `.obsidian.vimrc`, `.obsidian/snippets/true-brutalism.css`). Run `obsconf` (see `scripts/`) from inside any vault to symlink everything in on demand.
